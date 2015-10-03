@@ -29,6 +29,8 @@
 
 import Cocoa
 
+typealias PDFData = NSData
+
 enum ChartwellStyle {
     case Bars
     case BarsVertical
@@ -61,8 +63,10 @@ enum ChartwellStyle {
 struct ChartWellFont {
     var font: NSFont
     var style: ChartwellStyle
+    private let renderingTextField: NSTextField
     
     init(style: ChartwellStyle, pointSize: CGFloat) {
+        
         let rawFont = style.fontOfSize(pointSize)
         let rawFontDescriptor = CTFontCopyFontDescriptor(rawFont)
         let mutableRawFontDescriptor = CTFontDescriptorCreateCopyWithFeature(rawFontDescriptor,
@@ -70,59 +74,89 @@ struct ChartWellFont {
             NSNumber(int: 2)) // Lining Figures
         let adjustedFont = CTFontCreateWithFontDescriptor(mutableRawFontDescriptor, pointSize, nil)
         
+        self.renderingTextField = NSTextField()
+        self.renderingTextField.font = adjustedFont
+        self.renderingTextField.lineBreakMode = NSLineBreakMode.ByClipping
+        
         self.font = adjustedFont
         self.style = style
     }
     
-    func chartImageFromString(inputString: NSString, defaultColor: NSColor, colorRanges: [(range: NSRange, color: NSColor)]?) -> NSImage {
-        let attrString = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0)
-        CFAttributedStringReplaceString(attrString, CFRangeMake(0, 0), inputString)
-        CFAttributedStringSetAttribute(attrString, CFRangeMake(0, inputString.length), kCTForegroundColorAttributeName, defaultColor.CGColor)
-        CFAttributedStringSetAttribute(attrString, CFRangeMake(0, inputString.length), kCTFontAttributeName, self.font)
-        colorRanges?.forEach() { tuple in
-            CFAttributedStringSetAttribute(attrString, CFRange(location: tuple.range.location, length: tuple.range.length), kCTForegroundColorAttributeName, tuple.color.CGColor)
+    func chartImageFromTuple(array: [(value: Int, color: NSColor)]) -> PDFData {
+        let inputString = self.chartStringFromTupleArray(array)
+        self.renderingTextField.attributedStringValue = inputString
+        self.renderingTextField.sizeToFit()
+        let data = self.renderingTextField.dataWithPDFInsideRect(self.renderingTextField.bounds)
+        return data
+    }
+    
+    func chartImageFromIntegerArray(chartInput: [Int], chartColor: NSColor) -> PDFData {
+        let inputString = self.chartStringFromIntegerArray(chartInput)
+        self.renderingTextField.stringValue = inputString
+        self.renderingTextField.textColor = chartColor
+        self.renderingTextField.sizeToFit()
+        let data = self.renderingTextField.dataWithPDFInsideRect(self.renderingTextField.bounds)
+        return data
+    }
+    
+    private func chartStringFromIntegerArray(integerArray: [Int]) -> String {
+        var outputString = ""
+        integerArray.forEach() { integer in
+            outputString += "\(integer)+"
         }
-        
-        let tuple = __CGImageFromAttributedString(attrString)
-        let nsImage = NSImage(CGImage: tuple.image, size: tuple.size)
-        
-        return nsImage
+        return outputString
     }
     
-    func chartImageFromString(inputString: NSString, chartColor: NSColor) -> NSImage {
-        let attrString = CFAttributedStringCreateMutable(kCFAllocatorDefault, 0)
-        CFAttributedStringReplaceString(attrString, CFRangeMake(0, 0), inputString)
-        CFAttributedStringSetAttribute(attrString, CFRangeMake(0, inputString.length), kCTForegroundColorAttributeName, chartColor.CGColor)
-        CFAttributedStringSetAttribute(attrString, CFRangeMake(0, inputString.length), kCTFontAttributeName, self.font)
-        
-        let tuple = __CGImageFromAttributedString(attrString)
-        let nsImage = NSImage(CGImage: tuple.image, size: tuple.size)
-        
-        return nsImage
-    }
-    
-    private let recycledContext: CGContextRef = {
-        let scale = CGFloat(1.0)
-        let size = CGSize(width: 2000, height: 2000)
-        let scaledSize = CGSize(width: size.width * scale, height: size.height * scale)
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        return CGBitmapContextCreate(nil, Int(round(scaledSize.width)), Int(round(scaledSize.height)), 8, 0, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)!
-        }()
-    
-    private func __CGImageFromAttributedString(attributedString: CFAttributedStringRef) -> (image: CGImage, size: CGSize) {
-        let line = CTLineCreateWithAttributedString(attributedString)
-        let textFrame = CTLineGetImageBounds(line, self.recycledContext)
-        let textSize = CGSize(width: textFrame.size.width + textFrame.origin.x, height: textFrame.size.height + textFrame.origin.y)
-        
-        let outputContext = CGBitmapContextCreate(nil, Int(round(textSize.width)), Int(round(textSize.height)), 8, 0, CGColorSpaceCreateDeviceRGB(), CGImageAlphaInfo.PremultipliedLast.rawValue)!
-        CTLineDraw(line, outputContext)
-        
-        let cgImage = CGBitmapContextCreateImage(outputContext)!
-        return (image: cgImage, size: textSize)
+    private func chartStringFromTupleArray(array: [(value: Int, color: NSColor)]) -> NSAttributedString {
+        let mutableAttributedString = NSMutableAttributedString()
+        array.forEach() { tuple in
+            let attributes = [
+                NSForegroundColorAttributeName : tuple.color,
+                NSFontAttributeName : self.font
+            ]
+            let tinyString = NSAttributedString(string: "\(tuple.value)+", attributes: attributes)
+            mutableAttributedString.appendAttributedString(tinyString)
+        }
+        let outputAttributedString = mutableAttributedString.copy() as! NSAttributedString
+        return outputAttributedString
     }
 }
 
-let textString = "10+30+50+70+40+80+90+100+10+20+30+40+50+60+70+80+90+100+10+30+50+70+40+80+90+100+10+20+30+40+50+60+70+80+90+100+10+30+50+70+40+80+90+100+10+20+30+40+50+60+70+80+90+100"
+let textArray = [10,30,50,70,40,80,90,100,10,20,30,40,50,60,70,80,90,100,10,30,50,70,40,80,90,100,10,20,30,40,50,60,70,80,90,100,10,30,50,70,40,80,90,100,10,20,30,40,50,60,70,80,90,100]
+
+let textTuple = [
+    (value: 10, color: NSColor.redColor()),
+    (value: 20, color: NSColor.yellowColor()),
+    (value: 30, color: NSColor.greenColor()),
+    (value: 40, color: NSColor.blueColor()),
+    (value: 50, color: NSColor.grayColor()),
+    (value: 60, color: NSColor.darkGrayColor()),
+    (value: 70, color: NSColor.lightGrayColor()),
+    (value: 80, color: NSColor.blueColor()),
+    (value: 90, color: NSColor.brownColor()),
+    (value: 100, color: NSColor.magentaColor()),
+    (value: 10, color: NSColor.cyanColor()),
+    (value: 20, color: NSColor.orangeColor()),
+    (value: 30, color: NSColor.redColor()),
+    (value: 40, color: NSColor.redColor()),
+    (value: 50, color: NSColor.greenColor()),
+    (value: 60, color: NSColor.grayColor()),
+    (value: 70, color: NSColor.yellowColor()),
+    (value: 80, color: NSColor.darkGrayColor()),
+    (value: 90, color: NSColor.orangeColor()),
+    (value: 100, color: NSColor.redColor()),
+    (value: 10, color: NSColor.blueColor()),
+    (value: 20, color: NSColor.greenColor()),
+    (value: 30, color: NSColor.magentaColor()),
+    (value: 40, color: NSColor.cyanColor()),
+    (value: 50, color: NSColor.blueColor()),
+    (value: 60, color: NSColor.redColor()),
+    (value: 70, color: NSColor.blueColor()),
+    (value: 80, color: NSColor.greenColor()),
+    (value: 90, color: NSColor.magentaColor()),
+    (value: 100, color: NSColor.cyanColor())
+]
+
 let fontArray = [
     ChartWellFont(style: .Bars, pointSize: 100),
     ChartWellFont(style: .BarsVertical, pointSize: 100),
@@ -133,16 +167,25 @@ let fontArray = [
     ChartWellFont(style: .Rose, pointSize: 100)
 ]
 
-let chartImageArray = fontArray.map() { font -> NSImage in
-    return font.chartImageFromString(textString, chartColor: NSColor.blueColor())
+let chartImageArray = fontArray.map() { font -> PDFData in
+    return font.chartImageFromIntegerArray(textArray, chartColor: NSColor.blueColor())
+}
+
+let chartColoredArray = fontArray.map() { font -> PDFData in
+    return font.chartImageFromTuple(textTuple)
 }
 
 let url = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.CachesDirectory, inDomains: .UserDomainMask).first
 
-for (index, image) in chartImageArray.enumerate() {
-    let data = image.TIFFRepresentation
-    let fileURL = url!.URLByAppendingPathComponent("file\(index).tiff")
+for (index, data) in chartImageArray.enumerate() {
+    let fileURL = url!.URLByAppendingPathComponent("singleColor\(index).pdf")
     print(fileURL)
-    data?.writeToURL(fileURL, atomically: true)
+    data.writeToURL(fileURL, atomically: true)
+}
+
+for (index, data) in chartColoredArray.enumerate() {
+    let fileURL = url!.URLByAppendingPathComponent("multiColor\(index).pdf")
+    print(fileURL)
+    data.writeToURL(fileURL, atomically: true)
 }
 
