@@ -1,0 +1,284 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		738D86BC1BF2DA820009799C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D86BB1BF2DA820009799C /* AppDelegate.swift */; };
+		738D86BE1BF2DA820009799C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 738D86BD1BF2DA820009799C /* Assets.xcassets */; };
+		738D86C11BF2DA820009799C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 738D86BF1BF2DA820009799C /* MainMenu.xib */; };
+		738D86D11BF2DBB60009799C /* ChartTestWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 738D86CF1BF2DBB60009799C /* ChartTestWindowController.xib */; };
+		738D86D31BF2DC890009799C /* ChartTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D86D21BF2DC880009799C /* ChartTestViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		738D86B81BF2DA820009799C /* SSChartwell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSChartwell.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		738D86BB1BF2DA820009799C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		738D86BD1BF2DA820009799C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		738D86C01BF2DA820009799C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		738D86C21BF2DA820009799C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		738D86CF1BF2DBB60009799C /* ChartTestWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartTestWindowController.xib; sourceTree = "<group>"; };
+		738D86D21BF2DC880009799C /* ChartTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTestViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		738D86B51BF2DA820009799C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		738D86AF1BF2DA800009799C = {
+			isa = PBXGroup;
+			children = (
+				738D86BA1BF2DA820009799C /* SSChartwell */,
+				738D86B91BF2DA820009799C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		738D86B91BF2DA820009799C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				738D86B81BF2DA820009799C /* SSChartwell.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		738D86BA1BF2DA820009799C /* SSChartwell */ = {
+			isa = PBXGroup;
+			children = (
+				738D86BB1BF2DA820009799C /* AppDelegate.swift */,
+				738D86D21BF2DC880009799C /* ChartTestViewController.swift */,
+				738D86BD1BF2DA820009799C /* Assets.xcassets */,
+				738D86BF1BF2DA820009799C /* MainMenu.xib */,
+				738D86CF1BF2DBB60009799C /* ChartTestWindowController.xib */,
+				738D86C21BF2DA820009799C /* Info.plist */,
+			);
+			path = SSChartwell;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		738D86B71BF2DA820009799C /* SSChartwell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 738D86C51BF2DA820009799C /* Build configuration list for PBXNativeTarget "SSChartwell" */;
+			buildPhases = (
+				738D86B41BF2DA820009799C /* Sources */,
+				738D86B51BF2DA820009799C /* Frameworks */,
+				738D86B61BF2DA820009799C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSChartwell;
+			productName = SSChartwell;
+			productReference = 738D86B81BF2DA820009799C /* SSChartwell.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		738D86B01BF2DA800009799C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Jeffrey Bergier";
+				TargetAttributes = {
+					738D86B71BF2DA820009799C = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 738D86B31BF2DA810009799C /* Build configuration list for PBXProject "SSChartwell" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 738D86AF1BF2DA800009799C;
+			productRefGroup = 738D86B91BF2DA820009799C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				738D86B71BF2DA820009799C /* SSChartwell */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		738D86B61BF2DA820009799C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				738D86D11BF2DBB60009799C /* ChartTestWindowController.xib in Resources */,
+				738D86BE1BF2DA820009799C /* Assets.xcassets in Resources */,
+				738D86C11BF2DA820009799C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		738D86B41BF2DA820009799C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				738D86BC1BF2DA820009799C /* AppDelegate.swift in Sources */,
+				738D86D31BF2DC890009799C /* ChartTestViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		738D86BF1BF2DA820009799C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				738D86C01BF2DA820009799C /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		738D86C31BF2DA820009799C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		738D86C41BF2DA820009799C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		738D86C61BF2DA820009799C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SSChartwell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saturdayapps.SSChartwell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		738D86C71BF2DA820009799C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SSChartwell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saturdayapps.SSChartwell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		738D86B31BF2DA810009799C /* Build configuration list for PBXProject "SSChartwell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				738D86C31BF2DA820009799C /* Debug */,
+				738D86C41BF2DA820009799C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		738D86C51BF2DA820009799C /* Build configuration list for PBXNativeTarget "SSChartwell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				738D86C61BF2DA820009799C /* Debug */,
+				738D86C71BF2DA820009799C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 738D86B01BF2DA800009799C /* Project object */;
+}
