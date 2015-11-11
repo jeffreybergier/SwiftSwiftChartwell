@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner">
@@ -20,6 +21,57 @@
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" allowsMagnification="YES" maxMagnification="20" minMagnification="0.10000000000000001" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyI-sf-cxt">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <clipView key="contentView" id="HxM-HF-A5h">
+                            <rect key="frame" x="1" y="1" width="478" height="268"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view translatesAutoresizingMaskIntoConstraints="NO" id="X8e-we-4Rh">
+                                    <rect key="frame" x="0.0" y="0.0" width="478" height="268"/>
+                                    <subviews>
+                                        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LR8-5e-d9L">
+                                            <rect key="frame" x="20" y="20" width="438" height="228"/>
+                                            <animations/>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="LR8-5e-d9L" secondAttribute="bottom" constant="20" symbolic="YES" id="HaR-gi-ccB"/>
+                                        <constraint firstAttribute="trailing" secondItem="LR8-5e-d9L" secondAttribute="trailing" constant="20" symbolic="YES" id="UnR-IN-hjq"/>
+                                        <constraint firstItem="LR8-5e-d9L" firstAttribute="leading" secondItem="X8e-we-4Rh" secondAttribute="leading" constant="20" symbolic="YES" id="fxy-16-U1k"/>
+                                        <constraint firstItem="LR8-5e-d9L" firstAttribute="top" secondItem="X8e-we-4Rh" secondAttribute="top" constant="20" symbolic="YES" id="vvs-nb-GSN"/>
+                                    </constraints>
+                                    <animations/>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="X8e-we-4Rh" firstAttribute="top" secondItem="HxM-HF-A5h" secondAttribute="top" placeholder="YES" identifier="REQUIRED-FOR-SILENCE" id="6HG-ma-K9r"/>
+                                <constraint firstAttribute="trailing" secondItem="X8e-we-4Rh" secondAttribute="trailing" placeholder="YES" identifier="REQUIRED-FOR-SILENCE" id="Bds-yx-vPs"/>
+                                <constraint firstItem="X8e-we-4Rh" firstAttribute="leading" secondItem="HxM-HF-A5h" secondAttribute="leading" placeholder="YES" identifier="REQUIRED-FOR-SILENCE" id="W3o-sR-VZD"/>
+                                <constraint firstAttribute="bottom" secondItem="X8e-we-4Rh" secondAttribute="bottom" placeholder="YES" identifier="REQUIRED-FOR-SILENCE" id="oOW-qs-0oo"/>
+                            </constraints>
+                            <animations/>
+                        </clipView>
+                        <animations/>
+                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="oss-bP-2xC">
+                            <rect key="frame" x="1" y="253" width="478" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <animations/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="VsO-zU-0te">
+                            <rect key="frame" x="463" y="1" width="16" height="268"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <animations/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UyI-sf-cxt" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="4do-7l-tdx"/>
+                    <constraint firstItem="UyI-sf-cxt" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="aAW-iM-ZjN"/>
+                    <constraint firstAttribute="trailing" secondItem="UyI-sf-cxt" secondAttribute="trailing" id="hxK-aE-iiF"/>
+                    <constraint firstAttribute="bottom" secondItem="UyI-sf-cxt" secondAttribute="bottom" id="rcJ-3a-KmT"/>
+                </constraints>
                 <animations/>
             </view>
             <connections>
@@ -28,6 +80,7 @@
         </window>
         <viewController id="g4d-fO-ssJ" customClass="ChartTestViewController" customModule="SSChartwell" customModuleProvider="target">
             <connections>
+                <outlet property="imageStackView" destination="LR8-5e-d9L" id="2nv-3G-WBq"/>
                 <outlet property="view" destination="se5-gp-TjO" id="LeV-QZ-8NM"/>
             </connections>
         </viewController>

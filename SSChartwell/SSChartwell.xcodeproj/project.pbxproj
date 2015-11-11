@@ -12,6 +12,14 @@
 		738D86C11BF2DA820009799C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 738D86BF1BF2DA820009799C /* MainMenu.xib */; };
 		738D86D11BF2DBB60009799C /* ChartTestWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 738D86CF1BF2DBB60009799C /* ChartTestWindowController.xib */; };
 		738D86D31BF2DC890009799C /* ChartTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D86D21BF2DC880009799C /* ChartTestViewController.swift */; };
+		738D86DB1BF2DEF50009799C /* ChartwellBars.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D41BF2DEF50009799C /* ChartwellBars.ttf */; };
+		738D86DC1BF2DEF50009799C /* ChartwellBarsVertical.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D51BF2DEF50009799C /* ChartwellBarsVertical.ttf */; };
+		738D86DD1BF2DEF50009799C /* ChartwellLines.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D61BF2DEF50009799C /* ChartwellLines.ttf */; };
+		738D86DE1BF2DEF50009799C /* ChartwellPies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D71BF2DEF50009799C /* ChartwellPies.ttf */; };
+		738D86DF1BF2DEF50009799C /* ChartwellRadar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D81BF2DEF50009799C /* ChartwellRadar.ttf */; };
+		738D86E01BF2DEF50009799C /* ChartwellRings.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D91BF2DEF50009799C /* ChartwellRings.ttf */; };
+		738D86E11BF2DEF50009799C /* ChartwellRose.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86DA1BF2DEF50009799C /* ChartwellRose.ttf */; };
+		738D86E31BF2E15D0009799C /* ChartWellFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D86E21BF2E15D0009799C /* ChartWellFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +30,15 @@
 		738D86C21BF2DA820009799C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		738D86CF1BF2DBB60009799C /* ChartTestWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartTestWindowController.xib; sourceTree = "<group>"; };
 		738D86D21BF2DC880009799C /* ChartTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTestViewController.swift; sourceTree = "<group>"; };
+		738D86D41BF2DEF50009799C /* ChartwellBars.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellBars.ttf; sourceTree = "<group>"; };
+		738D86D51BF2DEF50009799C /* ChartwellBarsVertical.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellBarsVertical.ttf; sourceTree = "<group>"; };
+		738D86D61BF2DEF50009799C /* ChartwellLines.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellLines.ttf; sourceTree = "<group>"; };
+		738D86D71BF2DEF50009799C /* ChartwellPies.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellPies.ttf; sourceTree = "<group>"; };
+		738D86D81BF2DEF50009799C /* ChartwellRadar.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellRadar.ttf; sourceTree = "<group>"; };
+		738D86D91BF2DEF50009799C /* ChartwellRings.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellRings.ttf; sourceTree = "<group>"; };
+		738D86DA1BF2DEF50009799C /* ChartwellRose.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellRose.ttf; sourceTree = "<group>"; };
+		738D86E21BF2E15D0009799C /* ChartWellFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartWellFont.swift; sourceTree = "<group>"; };
+		738D86E41BF2E3C20009799C /* SSChartwell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SSChartwell.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +73,19 @@
 			children = (
 				738D86BB1BF2DA820009799C /* AppDelegate.swift */,
 				738D86D21BF2DC880009799C /* ChartTestViewController.swift */,
+				738D86E21BF2E15D0009799C /* ChartWellFont.swift */,
 				738D86BD1BF2DA820009799C /* Assets.xcassets */,
 				738D86BF1BF2DA820009799C /* MainMenu.xib */,
 				738D86CF1BF2DBB60009799C /* ChartTestWindowController.xib */,
 				738D86C21BF2DA820009799C /* Info.plist */,
+				738D86D41BF2DEF50009799C /* ChartwellBars.ttf */,
+				738D86D51BF2DEF50009799C /* ChartwellBarsVertical.ttf */,
+				738D86D61BF2DEF50009799C /* ChartwellLines.ttf */,
+				738D86D71BF2DEF50009799C /* ChartwellPies.ttf */,
+				738D86D81BF2DEF50009799C /* ChartwellRadar.ttf */,
+				738D86D91BF2DEF50009799C /* ChartwellRings.ttf */,
+				738D86DA1BF2DEF50009799C /* ChartwellRose.ttf */,
+				738D86E41BF2E3C20009799C /* SSChartwell.entitlements */,
 			);
 			path = SSChartwell;
 			sourceTree = "<group>";
@@ -96,6 +122,12 @@
 				TargetAttributes = {
 					738D86B71BF2DA820009799C = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = V6ESYGU6CV;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -122,9 +154,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				738D86DE1BF2DEF50009799C /* ChartwellPies.ttf in Resources */,
 				738D86D11BF2DBB60009799C /* ChartTestWindowController.xib in Resources */,
+				738D86DD1BF2DEF50009799C /* ChartwellLines.ttf in Resources */,
+				738D86DC1BF2DEF50009799C /* ChartwellBarsVertical.ttf in Resources */,
+				738D86E01BF2DEF50009799C /* ChartwellRings.ttf in Resources */,
 				738D86BE1BF2DA820009799C /* Assets.xcassets in Resources */,
+				738D86E11BF2DEF50009799C /* ChartwellRose.ttf in Resources */,
 				738D86C11BF2DA820009799C /* MainMenu.xib in Resources */,
+				738D86DF1BF2DEF50009799C /* ChartwellRadar.ttf in Resources */,
+				738D86DB1BF2DEF50009799C /* ChartwellBars.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				738D86BC1BF2DA820009799C /* AppDelegate.swift in Sources */,
+				738D86E31BF2E15D0009799C /* ChartWellFont.swift in Sources */,
 				738D86D31BF2DC890009799C /* ChartTestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +278,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SSChartwell/SSChartwell.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = SSChartwell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -250,6 +292,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SSChartwell/SSChartwell.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = SSChartwell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
