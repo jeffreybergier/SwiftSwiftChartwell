@@ -10,6 +10,44 @@ import Cocoa
 
 typealias PDFData = NSData
 
+struct ChartwellRingData {
+    var ring1: UInt = 0
+    var ring2: UInt = 0
+    var ring3: UInt = 0
+    var ring4: UInt = 0
+    var ring5: UInt = 0
+    var ring6: UInt = 0
+    var ring7: UInt = 0
+    var ring8: UInt = 0
+    var ring9: UInt = 0
+    var ring10: UInt = 0
+}
+
+struct ChartwellRingRenderer {
+    private var font: NSFont
+    private var data: ChartwellRingData
+    
+    init(data: ChartwellRingData, pointSize: CGFloat) {
+        self.font = NSFont.chartwellFontOfStyle(.Rings, pointSize: pointSize)
+        self.data = data
+    }
+    
+    var TIFFRepresentation: NSData {
+        let renderingView = NSTextField()
+        renderingView.wantsLayer = true
+        renderingView.backgroundColor = NSColor.redColor()
+        renderingView.lineBreakMode = NSLineBreakMode.ByClipping
+        renderingView.stringValue = "Hello"
+        renderingView.editable = false
+        renderingView.sizeToFit()
+        let bitmapRep = renderingView.bitmapImageRepForCachingDisplayInRect(renderingView.bounds)
+        let pdf = renderingView.dataWithPDFInsideRect(renderingView.bounds)
+        let pdfImage = NSImage(data: pdf)
+        let tiff = pdfImage!.TIFFRepresentation
+        return bitmapRep!.TIFFRepresentation!
+    }
+}
+
 enum ChartwellFontStyle {
     case Bars
     case BarsVertical
@@ -46,7 +84,7 @@ struct ChartWellFontRenderer {
     
     init(style: ChartwellFontStyle, pointSize: CGFloat) {
         
-        let rawFont =  NSFont(chartwell: style, pointSize: pointSize)
+        let rawFont =  NSFont.chartwellFontOfStyle(style, pointSize: pointSize)
         let rawFontDescriptor = CTFontCopyFontDescriptor(rawFont)
         let mutableRawFontDescriptor = CTFontDescriptorCreateCopyWithFeature(rawFontDescriptor,
             NSNumber(int: 35), // Number Case
@@ -124,8 +162,13 @@ struct ChartWellFontRenderer {
 }
 
 extension NSFont {
-    convenience init!(chartwell: ChartwellFontStyle, pointSize: CGFloat) {
-        self.init(name: chartwell.fontNamedString, size: pointSize)
+    class func chartwellFontOfStyle(chartwell: ChartwellFontStyle, pointSize: CGFloat) -> NSFont {
+        let rawFont = NSFont(name: chartwell.fontNamedString, size: pointSize)
+        let rawFontDescriptor = CTFontCopyFontDescriptor(rawFont!)
+        let mutableRawFontDescriptor = CTFontDescriptorCreateCopyWithFeature(rawFontDescriptor,
+            NSNumber(int: 35), // Number Case
+            NSNumber(int: 2)) // Lining Figures
+        let adjustedFont = CTFontCreateWithFontDescriptor(mutableRawFontDescriptor, pointSize, nil)
+        return adjustedFont
     }
-    
 }
