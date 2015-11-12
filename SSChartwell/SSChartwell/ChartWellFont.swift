@@ -73,6 +73,7 @@ struct ChartWellFontRenderer {
         let inputString = self.chartStringFromTupleArray(array)
         let renderingView = NSTextField()
         renderingView.lineBreakMode = NSLineBreakMode.ByClipping
+        renderingView.editable = false
         renderingView.attributedStringValue = inputString
         renderingView.sizeToFit()
         return renderingView
@@ -93,6 +94,7 @@ struct ChartWellFontRenderer {
         renderingView.font = self.font
         renderingView.lineBreakMode = NSLineBreakMode.ByClipping
         renderingView.stringValue = inputString
+        renderingView.editable = false
         renderingView.textColor = chartColor
         renderingView.sizeToFit()
         return renderingView
