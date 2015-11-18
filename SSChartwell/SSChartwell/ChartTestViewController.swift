@@ -15,20 +15,22 @@ class ChartTestViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var data = ChartwellRingData()
-        data.ring1 = ChartwellRingValue(size: .Ten, color: NSColor.blueColor())
-        data.ring2 = ChartwellRingValue(size: .Twenty, color: NSColor.redColor())
-        data.ring3 = ChartwellRingValue(size: .Thirty, color: NSColor.yellowColor())
-        data.ring4 = ChartwellRingValue(size: .Forty, color: NSColor.greenColor())
-        data.ring5 = ChartwellRingValue(size: .Fifty, color: NSColor.blackColor())
-        data.ring6 = ChartwellRingValue(size: .Sixty, color: NSColor.grayColor())
-        data.ring7 = ChartwellRingValue(size: .Seventy, color: NSColor.darkGrayColor())
-        data.ring8 = ChartwellRingValue(size: .Eighty, color: NSColor.lightGrayColor())
-        data.ring9 = ChartwellRingValue(size: .Ninety, color: NSColor.cyanColor())
-        data.ring10 = ChartwellRingValue(size: .OneHundred, color: NSColor.magentaColor())
+        var data = Chart.Ring.Components()
+        data.ring1 = Chart.Ring.Component(size: .Ten, color: NSColor.blueColor())
+        data.ring2 = Chart.Ring.Component(size: .Twenty, color: NSColor.redColor())
+        data.ring3 = Chart.Ring.Component(size: .Thirty, color: NSColor.yellowColor())
+        data.ring4 = Chart.Ring.Component(size: .Forty, color: NSColor.greenColor())
+        data.ring5 = Chart.Ring.Component(size: .Fifty, color: NSColor.blackColor())
+        data.ring6 = Chart.Ring.Component(size: .Sixty, color: NSColor.grayColor())
+        data.ring7 = Chart.Ring.Component(size: .Seventy, color: NSColor.darkGrayColor())
+        data.ring8 = Chart.Ring.Component(size: .Eighty, color: NSColor.lightGrayColor())
+        data.ring9 = Chart.Ring.Component(size: .Ninety, color: NSColor.cyanColor())
+        data.ring10 = Chart.Ring.Component(size: .OneHundred, color: NSColor.magentaColor())
 
-        let renderer = ChartwellRingRenderer(data: data, pointSize: 100)
+        let renderer = Chart.Ring.Renderer(data: data, pointSize: 100)
         let tiff = renderer.TIFFImage
-        print(tiff)
+        let imageView = NSImageView()
+        imageView.image = tiff
+        self.imageStackView?.insertView(imageView, atIndex: 0, inGravity: .Top)
     }
 }
