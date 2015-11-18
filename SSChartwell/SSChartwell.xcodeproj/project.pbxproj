@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		736F7F4F1BFC114300C16670 /* Ring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F7F4E1BFC114300C16670 /* Ring.swift */; };
+		736F7F4F1BFC114300C16670 /* Rings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F7F4E1BFC114300C16670 /* Rings.swift */; };
 		736F7F511BFC130C00C16670 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736F7F501BFC130C00C16670 /* Chart.swift */; };
 		738D86BC1BF2DA820009799C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D86BB1BF2DA820009799C /* AppDelegate.swift */; };
 		738D86BE1BF2DA820009799C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 738D86BD1BF2DA820009799C /* Assets.xcassets */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		736F7F4E1BFC114300C16670 /* Ring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ring.swift; sourceTree = "<group>"; };
+		736F7F4E1BFC114300C16670 /* Rings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rings.swift; sourceTree = "<group>"; };
 		736F7F501BFC130C00C16670 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		738D86B81BF2DA820009799C /* SSChartwell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSChartwell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738D86BB1BF2DA820009799C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			children = (
 				738D86BB1BF2DA820009799C /* AppDelegate.swift */,
 				738D86D21BF2DC880009799C /* ChartTestViewController.swift */,
-				736F7F4E1BFC114300C16670 /* Ring.swift */,
+				736F7F4E1BFC114300C16670 /* Rings.swift */,
 				736F7F501BFC130C00C16670 /* Chart.swift */,
 				738D86BD1BF2DA820009799C /* Assets.xcassets */,
 				738D86BF1BF2DA820009799C /* MainMenu.xib */,
@@ -178,7 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				738D86BC1BF2DA820009799C /* AppDelegate.swift in Sources */,
-				736F7F4F1BFC114300C16670 /* Ring.swift in Sources */,
+				736F7F4F1BFC114300C16670 /* Rings.swift in Sources */,
 				736F7F511BFC130C00C16670 /* Chart.swift in Sources */,
 				738D86D31BF2DC890009799C /* ChartTestViewController.swift in Sources */,
 			);

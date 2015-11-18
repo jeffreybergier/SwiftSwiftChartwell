@@ -9,7 +9,7 @@
 import Cocoa
 
 extension Chart {
-    struct Ring {
+    struct Rings {
         struct Component {
             var size: ZeroOneHundredInt = .Zero
             var color: NSColor = NSColor.clearColor()
@@ -30,12 +30,12 @@ extension Chart {
     }
 }
 
-extension Chart.Ring {
+extension Chart.Rings {
     struct Renderer {
         private var font: NSFont
-        private var data: Chart.Ring.Components
+        private var data: Chart.Rings.Components
         
-        init(data: Chart.Ring.Components, pointSize: CGFloat) {
+        init(data: Chart.Rings.Components, pointSize: CGFloat) {
             self.font = NSFont.chartwellFontOfStyle(.Rings, pointSize: pointSize)
             self.data = data
         }
@@ -60,21 +60,21 @@ extension Chart.Ring {
     }
 }
 
-extension Chart.Ring.Components: SequenceType {
-    func generate() -> Chart.Ring.Components.Generator {
+extension Chart.Rings.Components: SequenceType {
+    func generate() -> Chart.Rings.Components.Generator {
         return Generator(data: self)
     }
     
     struct Generator: GeneratorType {
         
-        private var data: Chart.Ring.Components
+        private var data: Chart.Rings.Components
         private var iteratingLocation = 0
         
-        init(data: Chart.Ring.Components) {
+        init(data: Chart.Rings.Components) {
             self.data = data
         }
         
-        mutating func next() -> Chart.Ring.Component? {
+        mutating func next() -> Chart.Rings.Component? {
             switch self.iteratingLocation {
             case 0:
                 self.iteratingLocation += 1
@@ -115,7 +115,7 @@ extension Chart.Ring.Components: SequenceType {
 }
 
 extension NSAttributedString {
-    convenience init(ringComponents: Chart.Ring.Components, font: NSFont) {
+    convenience init(ringComponents: Chart.Rings.Components, font: NSFont) {
         let mutableAttributedString = NSMutableAttributedString()
         for ringComponent in ringComponents {
             mutableAttributedString.appendAttributedString(NSAttributedString(string: "\(ringComponent.size)+", attributes: [NSForegroundColorAttributeName : ringComponent.color, NSFontAttributeName : font]))
