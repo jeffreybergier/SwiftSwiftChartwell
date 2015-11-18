@@ -15,17 +15,32 @@ extension Chart {
             var color: NSColor = NSColor.clearColor()
         }
         
-        struct Components {
-            var ring1 = Component()
-            var ring2 = Component()
-            var ring3 = Component()
-            var ring4 = Component()
-            var ring5 = Component()
-            var ring6 = Component()
-            var ring7 = Component()
-            var ring8 = Component()
-            var ring9 = Component()
-            var ring10 = Component()
+        private var components: [Component]
+        
+        init() {
+            self.components = []
+        }
+        
+        init(components: [Component]?) {
+            self.components = []
+            if let components = components {
+                for component in components {
+                    if self.addComponent(component) == false {
+                        NSLog("Ring components have been truncated. A ring chart can only support 10 rings.")
+                        break
+                    }
+                }
+            }
+        }
+        
+        mutating func addComponent(newComponent: Chart.Rings.Component) -> Bool {
+            if self.components.count >= 10 {
+                NSLog("Unable to add Ring Component. Ring Charts only support 10 rings.")
+                return false
+            } else {
+                self.components.append(newComponent)
+                return true
+            }
         }
     }
 }
@@ -33,9 +48,9 @@ extension Chart {
 extension Chart.Rings {
     struct Renderer {
         private var font: NSFont
-        private var data: Chart.Rings.Components
+        private var data: Chart.Rings
         
-        init(data: Chart.Rings.Components, pointSize: CGFloat) {
+        init(data: Chart.Rings, pointSize: CGFloat) {
             self.font = NSFont.chartwellFontOfStyle(.Rings, pointSize: pointSize)
             self.data = data
         }
@@ -50,7 +65,7 @@ extension Chart.Rings {
         var PDFImage: NSImage {
             let renderingView = NSTextField()
             renderingView.lineBreakMode = NSLineBreakMode.ByClipping
-            renderingView.attributedStringValue = NSAttributedString(ringComponents: self.data, font: self.font)
+            renderingView.attributedStringValue = NSAttributedString(rings: self.data, font: self.font)
             renderingView.editable = false
             renderingView.sizeToFit()
             let PDF = renderingView.dataWithPDFInsideRect(renderingView.bounds)
@@ -60,64 +75,10 @@ extension Chart.Rings {
     }
 }
 
-extension Chart.Rings.Components: SequenceType {
-    func generate() -> Chart.Rings.Components.Generator {
-        return Generator(data: self)
-    }
-    
-    struct Generator: GeneratorType {
-        
-        private var data: Chart.Rings.Components
-        private var iteratingLocation = 0
-        
-        init(data: Chart.Rings.Components) {
-            self.data = data
-        }
-        
-        mutating func next() -> Chart.Rings.Component? {
-            switch self.iteratingLocation {
-            case 0:
-                self.iteratingLocation += 1
-                return data.ring1
-            case 1:
-                self.iteratingLocation += 1
-                return data.ring2
-            case 2:
-                self.iteratingLocation += 1
-                return data.ring3
-            case 3:
-                self.iteratingLocation += 1
-                return data.ring4
-            case 4:
-                self.iteratingLocation += 1
-                return data.ring5
-            case 5:
-                self.iteratingLocation += 1
-                return data.ring6
-            case 6:
-                self.iteratingLocation += 1
-                return data.ring7
-            case 7:
-                self.iteratingLocation += 1
-                return data.ring8
-            case 8:
-                self.iteratingLocation += 1
-                return data.ring9
-            case 9:
-                self.iteratingLocation += 1
-                return data.ring10
-            default:
-                self.iteratingLocation = 0
-                return .None
-            }
-        }
-    }
-}
-
 extension NSAttributedString {
-    convenience init(ringComponents: Chart.Rings.Components, font: NSFont) {
+    convenience init(rings: Chart.Rings, font: NSFont) {
         let mutableAttributedString = NSMutableAttributedString()
-        for ringComponent in ringComponents {
+        for ringComponent in rings.components {
             mutableAttributedString.appendAttributedString(NSAttributedString(string: "\(ringComponent.size)+", attributes: [NSForegroundColorAttributeName : ringComponent.color, NSFontAttributeName : font]))
         }
         self.init(attributedString: mutableAttributedString)
