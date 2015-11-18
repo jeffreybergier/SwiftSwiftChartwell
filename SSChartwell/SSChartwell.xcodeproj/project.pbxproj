@@ -77,8 +77,8 @@
 			children = (
 				738D86BB1BF2DA820009799C /* AppDelegate.swift */,
 				738D86D21BF2DC880009799C /* ChartTestViewController.swift */,
-				736F7F4E1BFC114300C16670 /* Rings.swift */,
 				736F7F501BFC130C00C16670 /* Chart.swift */,
+				736F7F4E1BFC114300C16670 /* Rings.swift */,
 				736F7F521BFC184000C16670 /* Pies.swift */,
 				738D86BD1BF2DA820009799C /* Assets.xcassets */,
 				738D86BF1BF2DA820009799C /* MainMenu.xib */,

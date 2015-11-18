@@ -10,11 +10,6 @@ import Cocoa
 
 extension Chart {
     struct Rings {
-        struct Component {
-            var size: ZeroOneHundredInt = .Zero
-            var color: NSColor = NSColor.clearColor()
-        }
-        
         private var components: [Component]
         
         init() {
@@ -41,6 +36,26 @@ extension Chart {
                 self.components.append(newComponent)
                 return true
             }
+        }
+    }
+}
+
+extension Chart.Rings {
+    struct Component {
+        var size: UInt
+        var color: NSColor
+        static var max: UInt {
+            return 100
+        }
+        
+        init(size: UInt, color: NSColor = NSColor.blackColor()) {
+            if size > Component.max {
+                NSLog("Size Exceeds Max: Setting to 100")
+                self.size = 100
+            } else {
+                self.size = size
+            }
+            self.color = color
         }
     }
 }

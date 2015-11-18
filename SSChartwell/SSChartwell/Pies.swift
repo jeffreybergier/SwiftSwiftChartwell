@@ -10,19 +10,14 @@ import Cocoa
 
 extension Chart {
     struct Pie {
-        struct Component {
-            var percentage: ZeroOneHundredInt
-            var color = NSColor.blackColor()
-        }
-        
         private var components = [Component]()
         
         mutating func addComponent(newComponent: Component) -> Bool {
-            var currentValue = 0
+            var currentValue: UInt = 0
             for component in self.components {
-                currentValue += component.percentage.rawValue
+                currentValue += component.percentage
             }
-            if currentValue + newComponent.percentage.rawValue > 100 {
+            if currentValue + newComponent.percentage > 100 {
                 NSLog("Failed to Append New Pie Component to Pie Chart. Total Value Greater than 100%")
                 return false
             } else {
@@ -45,6 +40,26 @@ extension Chart {
                     }
                 }
             }
+        }
+    }
+}
+
+extension Chart.Pie {
+    struct Component {
+        var percentage: UInt
+        var color: NSColor
+        static var max: UInt {
+            return 100
+        }
+        
+        init(percentage: UInt, color: NSColor = NSColor.blackColor()) {
+            if percentage > Component.max {
+                NSLog("Percentage Exceeds Max: Setting to 100")
+                self.percentage = 100
+            } else {
+                self.percentage = percentage
+            }
+            self.color = color
         }
     }
 }

@@ -16,18 +16,18 @@ class ChartTestViewController: NSViewController {
         super.viewDidLoad()
         
         let ringsComponents = [
-            Chart.Rings.Component(size: .Ten, color: NSColor.blueColor()),
-            Chart.Rings.Component(size: .Twenty, color: NSColor.redColor()),
-            Chart.Rings.Component(size: .Thirty, color: NSColor.yellowColor()),
-            Chart.Rings.Component(size: .Forty, color: NSColor.greenColor()),
-            Chart.Rings.Component(size: .Fifty, color: NSColor.blackColor()),
-            Chart.Rings.Component(size: .Sixty, color: NSColor.grayColor()),
-            Chart.Rings.Component(size: .Seventy, color: NSColor.darkGrayColor()),
-            Chart.Rings.Component(size: .Eighty, color: NSColor.lightGrayColor()),
-            Chart.Rings.Component(size: .Ninety, color: NSColor.cyanColor()),
-            Chart.Rings.Component(size: .OneHundred, color: NSColor.magentaColor()),
-            Chart.Rings.Component(size: .OneHundred, color: NSColor.redColor()),
-            Chart.Rings.Component(size: .OneHundred, color: NSColor.blueColor())
+            Chart.Rings.Component(size: 120, color: NSColor.blueColor()),
+            Chart.Rings.Component(size: 100, color: NSColor.redColor()),
+            Chart.Rings.Component(size: 20, color: NSColor.yellowColor()),
+            Chart.Rings.Component(size: 32, color: NSColor.greenColor()),
+            Chart.Rings.Component(size: 75, color: NSColor.blackColor()),
+            Chart.Rings.Component(size: 89, color: NSColor.grayColor()),
+            Chart.Rings.Component(size: 45, color: NSColor.darkGrayColor()),
+            Chart.Rings.Component(size: 22, color: NSColor.lightGrayColor()),
+            Chart.Rings.Component(size: 12, color: NSColor.cyanColor()),
+            Chart.Rings.Component(size: 45, color: NSColor.magentaColor()),
+            Chart.Rings.Component(size: 55, color: NSColor.redColor()),
+            Chart.Rings.Component(size: 66, color: NSColor.blueColor())
 
         ]
         let rings = Chart.Rings(components: ringsComponents)
@@ -39,20 +39,20 @@ class ChartTestViewController: NSViewController {
         self.imageStackView?.insertView(ringImageView, atIndex: 0, inGravity: .Top)
         
         let pieComponents = [
-            Chart.Pie.Component(percentage: .Five, color: NSColor.blueColor()),
-            Chart.Pie.Component(percentage: .Ten, color: NSColor.redColor()),
-            Chart.Pie.Component(percentage: .Twenty, color: NSColor.yellowColor()),
-            Chart.Pie.Component(percentage: .Five, color: NSColor.greenColor()),
-            Chart.Pie.Component(percentage: .Eleven, color: NSColor.blackColor()),
-            Chart.Pie.Component(percentage: .Two, color: NSColor.grayColor()),
-            Chart.Pie.Component(percentage: .Two, color: NSColor.darkGrayColor()),
-            Chart.Pie.Component(percentage: .Three, color: NSColor.lightGrayColor()),
-            Chart.Pie.Component(percentage: .Fifteen, color: NSColor.cyanColor()),
-            Chart.Pie.Component(percentage: .Seven, color: NSColor.magentaColor()),
-            Chart.Pie.Component(percentage: .Eight, color: NSColor.yellowColor()),
-            Chart.Pie.Component(percentage: .Nine, color: NSColor.orangeColor()),
-            Chart.Pie.Component(percentage: .Eight, color: NSColor.yellowColor()),
-            Chart.Pie.Component(percentage: .Nine, color: NSColor.orangeColor())
+            Chart.Pie.Component(percentage: 5, color: NSColor.blueColor()),
+            Chart.Pie.Component(percentage: 10, color: NSColor.redColor()),
+            Chart.Pie.Component(percentage: 20, color: NSColor.yellowColor()),
+            Chart.Pie.Component(percentage: 5, color: NSColor.greenColor()),
+            Chart.Pie.Component(percentage: 11, color: NSColor.blackColor()),
+            Chart.Pie.Component(percentage: 2, color: NSColor.grayColor()),
+            Chart.Pie.Component(percentage: 2, color: NSColor.darkGrayColor()),
+            Chart.Pie.Component(percentage: 3, color: NSColor.lightGrayColor()),
+            Chart.Pie.Component(percentage: 15, color: NSColor.cyanColor()),
+            Chart.Pie.Component(percentage: 7, color: NSColor.magentaColor()),
+            Chart.Pie.Component(percentage: 8, color: NSColor.yellowColor()),
+            Chart.Pie.Component(percentage: 9, color: NSColor.orangeColor()),
+            Chart.Pie.Component(percentage: 8, color: NSColor.yellowColor()),
+            Chart.Pie.Component(percentage: 9, color: NSColor.orangeColor())
         ]
         let pie = Chart.Pie(components: pieComponents)
 
