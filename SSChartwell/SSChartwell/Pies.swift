@@ -14,6 +14,10 @@ protocol ChartDataType {
     var components: [ChartDataComponentType] { get set }
     init(components: [ChartDataComponentType]?)
     mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool
+    // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+    // ISSUES WITH INITIALIZERS
+    init()
+    // END WORKAROUND
 }
 
 protocol ChartDataComponentType {
@@ -21,11 +25,15 @@ protocol ChartDataComponentType {
     var value: UInt { get set }
     var color: NSColor { get set }
     init(value: UInt, color: NSColor)
+    // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+    // ISSUES WITH INITIALIZERS
+    init()
+    // END WORKAROUND
 }
 
 extension ChartDataType {
     init(components: [ChartDataComponentType]?) {
-        self.init(components: components)
+        self.init()
         self.components = components ?? []
     }
     mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool {
@@ -36,7 +44,7 @@ extension ChartDataType {
 
 extension ChartDataComponentType {
     init(value: UInt, color: NSColor) {
-        self.init(value: value, color: color)
+        self.init()
         self.color = color
         self.value = value
     }
@@ -47,6 +55,13 @@ extension Chart {
         static var max: UInt? = 100
         static var fontName: String = "Chartwell Bars Vertical"
         var components: [ChartDataComponentType]
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        init() {
+            self.components = []
+        }
+        // END WORKAROUND
     }
 }
 
@@ -55,6 +70,14 @@ extension Chart.BarsVertical {
         static var max: UInt? = 100
         var value: UInt
         var color: NSColor
+
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        init() {
+            self.value = 0
+            self.color = NSColor.blackColor()
+        }
+        // END WORKAROUND
     }
 }
 
