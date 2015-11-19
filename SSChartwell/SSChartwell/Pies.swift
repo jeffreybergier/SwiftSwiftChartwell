@@ -8,6 +8,56 @@
 
 import Cocoa
 
+protocol ChartDataType {
+    static var max: UInt? { get }
+    static var fontName: String { get }
+    var components: [ChartDataComponentType] { get set }
+    init(components: [ChartDataComponentType]?)
+    mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool
+}
+
+protocol ChartDataComponentType {
+    static var max: UInt? { get }
+    var value: UInt { get set }
+    var color: NSColor { get set }
+    init(value: UInt, color: NSColor)
+}
+
+extension ChartDataType {
+    init(components: [ChartDataComponentType]?) {
+        self.init(components: components)
+        self.components = components ?? []
+    }
+    mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool {
+        self.components.append(newComponent)
+        return true
+    }
+}
+
+extension ChartDataComponentType {
+    init(value: UInt, color: NSColor) {
+        self.init(value: value, color: color)
+        self.color = color
+        self.value = value
+    }
+}
+
+extension Chart {
+    struct BarsVertical: ChartDataType {
+        static var max: UInt? = 100
+        static var fontName: String = "Chartwell Bars Vertical"
+        var components: [ChartDataComponentType]
+    }
+}
+
+extension Chart.BarsVertical {
+    struct Component: ChartDataComponentType {
+        static var max: UInt? = 100
+        var value: UInt
+        var color: NSColor
+    }
+}
+
 extension Chart {
     struct Pie {
         private var components = [Component]()

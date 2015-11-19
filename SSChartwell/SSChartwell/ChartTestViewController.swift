@@ -15,6 +15,12 @@ class ChartTestViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let barComponents = [
+            Chart.BarsVertical.Component(value: 20, color: NSColor.redColor()),
+            Chart.BarsVertical.Component(value: 50, color: NSColor.blueColor())
+        ]
+        let barsVertical = 
+        
         let ringsComponents = [
             Chart.Rings.Component(size: 120, color: NSColor.blueColor()),
             Chart.Rings.Component(size: 100, color: NSColor.redColor()),
