@@ -80,15 +80,13 @@ extension ChartDataType {
         self.init()
         if let max = self.dynamicType.max {
             // If MAX has a value, then we need to make sure we don't exceed the max when appending
-            var componentsValue = UInt(0)
-            for component in components {
-                componentsValue += component.value
-                if componentsValue <= max {
-                    self.components.append(component)
-                } else {
-                    NSLog("Some components omitted because they exceeded the MAX value: \(max)")
-                    break
+            if components.count < Int(max) {
+                self.components = components
+            } else {
+                for i in 0 ..< Int(max) {
+                    self.components[i] = components[i]
                 }
+                NSLog("Some components omitted because they exceeded the MAX value: \(max)")
             }
         } else {
             self.components = components
@@ -119,8 +117,17 @@ extension ChartDataType {
 extension ChartDataComponentType {
     init(value: UInt, color: NSColor) {
         self.init()
+        if let max = self.dynamicType.max {
+            if value <= max {
+                self.value = value
+            } else {
+                NSLog("Component exceeds MAX value: \(max)")
+                self.value = max
+            }
+        } else {
+            self.value = value
+        }
         self.color = color
-        self.value = value
     }
 }
 
@@ -139,9 +146,10 @@ extension ChartRendererType {
     }
     var PDFImage: NSImage {
         let font = NSFont.chartwellFont(self.data, pointSize: self.fontSize)
+        let attributedString = NSAttributedString(chartData: self.data, font: font)
         let renderingView = NSTextField()
         renderingView.lineBreakMode = NSLineBreakMode.ByClipping
-        renderingView.attributedStringValue = NSAttributedString(chartData: self.data, font: font)
+        renderingView.attributedStringValue = attributedString
         renderingView.editable = false
         renderingView.sizeToFit()
         let PDF = renderingView.dataWithPDFInsideRect(renderingView.bounds)
