@@ -11,16 +11,14 @@ import Cocoa
 // MARK: Pies
 
 extension Chart {
-    struct Pies: ChartDataType {
+    struct Pies: ChartValueDataType {
         static var max: UInt? = 100
         static var fontName: String = "Chartwell Pies"
-        var components: [ChartDataComponentType]
+        var components: [ChartDataComponentType] = []
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS
-        init() {
-            self.components = []
-        }
+        init() { }
         // END WORKAROUND
     }
 }
@@ -28,15 +26,12 @@ extension Chart {
 extension Chart.Pies {
     struct Component: ChartDataComponentType {
         static var max: UInt? = 100
-        var value: UInt
-        var color: NSColor
+        var value: UInt = 0
+        var color: NSColor = NSColor.blackColor()
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS
-        init() {
-            self.value = 0
-            self.color = NSColor.blackColor()
-        }
+        init() { }
         // END WORKAROUND
     }
 }
@@ -47,13 +42,11 @@ extension Chart {
     struct Rings: ChartDataType {
         static var max: UInt? = 10
         static var fontName: String = "Chartwell Rings"
-        var components: [ChartDataComponentType]
+        var components: [ChartDataComponentType] = []
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS
-        init() {
-            self.components = []
-        }
+        init() { }
         // END WORKAROUND
     }
 }
@@ -61,15 +54,12 @@ extension Chart {
 extension Chart.Rings {
     struct Component: ChartDataComponentType {
         static var max: UInt? = 100
-        var value: UInt
-        var color: NSColor
+        var value: UInt = 0
+        var color: NSColor = NSColor.blackColor()
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS
-        init() {
-            self.value = 0
-            self.color = NSColor.blackColor()
-        }
+        init() { }
         // END WORKAROUND
     }
 }
@@ -80,13 +70,11 @@ extension Chart {
     struct BarsVertical: ChartDataType {
         static var max: UInt? = .None
         static var fontName: String = "Chartwell Bars Vertical"
-        var components: [ChartDataComponentType]
+        var components: [ChartDataComponentType] = []
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS
-        init() {
-            self.components = []
-        }
+        init() { }
         // END WORKAROUND
     }
 }
@@ -94,15 +82,12 @@ extension Chart {
 extension Chart.BarsVertical {
     struct Component: ChartDataComponentType {
         static var max: UInt? = 100
-        var value: UInt
-        var color: NSColor
+        var value: UInt = 0
+        var color: NSColor = NSColor.blackColor()
 
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS
-        init() {
-            self.value = 0
-            self.color = NSColor.blackColor()
-        }
+        init() { }
         // END WORKAROUND
     }
 }

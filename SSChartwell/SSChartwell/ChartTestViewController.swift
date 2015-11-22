@@ -17,55 +17,65 @@ class ChartTestViewController: NSViewController {
         
         // MARK: Bars Vertical 
         
-//        let barComponents: [ChartDataComponentType] = [
-//            Chart.BarsVertical.Component(value: 20, color: NSColor.redColor()),
-//            Chart.BarsVertical.Component(value: 50, color: NSColor.blueColor()),
-//            Chart.BarsVertical.Component(value: 120, color: NSColor.blueColor()),
-//            Chart.BarsVertical.Component(value: 100, color: NSColor.redColor()),
-//            Chart.BarsVertical.Component(value: 20, color: NSColor.yellowColor()),
-//            Chart.BarsVertical.Component(value: 32, color: NSColor.greenColor()),
-//            Chart.BarsVertical.Component(value: 75, color: NSColor.blackColor()),
-//            Chart.BarsVertical.Component(value: 89, color: NSColor.grayColor()),
-//            Chart.BarsVertical.Component(value: 45, color: NSColor.darkGrayColor()),
-//            Chart.BarsVertical.Component(value: 22, color: NSColor.lightGrayColor()),
-//            Chart.BarsVertical.Component(value: 12, color: NSColor.cyanColor()),
-//            Chart.BarsVertical.Component(value: 45, color: NSColor.magentaColor()),
-//            Chart.BarsVertical.Component(value: 55, color: NSColor.redColor()),
-//            Chart.BarsVertical.Component(value: 66, color: NSColor.blueColor())
-//        ]
-//        let barsVertical = Chart.BarsVertical(components: barComponents)
-//        let barsVerticalRenderer = Chart.Renderer(data: barsVertical, fontSize: 100)
-//        let barsVerticalTIFFImage = barsVerticalRenderer.TIFFImage
-//        let barsVerticalImageView = NSImageView()
-//        barsVerticalImageView.image = barsVerticalTIFFImage
-//        
-//        self.imageStackView?.addView(barsVerticalImageView, inGravity: .Bottom)
+        let barComponents: [ChartDataComponentType] = [
+            Chart.BarsVertical.Component(value: 20, color: NSColor.redColor()),
+            Chart.BarsVertical.Component(value: 50, color: NSColor.blueColor()),
+            Chart.BarsVertical.Component(value: 120, color: NSColor.blueColor()),
+            Chart.BarsVertical.Component(value: 100, color: NSColor.redColor()),
+            Chart.BarsVertical.Component(value: 20, color: NSColor.yellowColor()),
+            Chart.BarsVertical.Component(value: 32, color: NSColor.greenColor()),
+            Chart.BarsVertical.Component(value: 75, color: NSColor.blackColor()),
+            Chart.BarsVertical.Component(value: 89, color: NSColor.grayColor()),
+            Chart.BarsVertical.Component(value: 45, color: NSColor.darkGrayColor()),
+            Chart.BarsVertical.Component(value: 22, color: NSColor.lightGrayColor()),
+            Chart.BarsVertical.Component(value: 12, color: NSColor.cyanColor()),
+            Chart.BarsVertical.Component(value: 45, color: NSColor.magentaColor()),
+            Chart.BarsVertical.Component(value: 55, color: NSColor.redColor()),
+            Chart.BarsVertical.Component(value: 66, color: NSColor.blueColor())
+        ]
+        var barsVertical = Chart.BarsVertical(components: barComponents)
+        for component in barComponents {
+            barsVertical.appendComponent(component)
+        }
+        for component in barComponents {
+            barsVertical.appendComponent(component)
+        }
+        let barsVerticalRenderer = Chart.Renderer(data: barsVertical, fontSize: 100)
+        let barsVerticalTIFFImage = barsVerticalRenderer.TIFFImage
+        let barsVerticalImageView = NSImageView()
+        barsVerticalImageView.image = barsVerticalTIFFImage
+        
+        self.imageStackView?.addView(barsVerticalImageView, inGravity: .Bottom)
         
         // MARK: Pies
         
-//        let pieComponents: [ChartDataComponentType] = [
-//            Chart.Pies.Component(value: 20, color: NSColor.redColor()),
-//            Chart.Pies.Component(value: 50, color: NSColor.blueColor()),
-//            Chart.Pies.Component(value: 120, color: NSColor.blueColor()),
-//            Chart.Pies.Component(value: 100, color: NSColor.redColor()),
-//            Chart.Pies.Component(value: 20, color: NSColor.yellowColor()),
-//            Chart.Pies.Component(value: 32, color: NSColor.greenColor()),
-//            Chart.Pies.Component(value: 75, color: NSColor.blackColor()),
-//            Chart.Pies.Component(value: 89, color: NSColor.grayColor()),
-//            Chart.Pies.Component(value: 45, color: NSColor.darkGrayColor()),
-//            Chart.Pies.Component(value: 22, color: NSColor.lightGrayColor()),
-//            Chart.Pies.Component(value: 12, color: NSColor.cyanColor()),
-//            Chart.Pies.Component(value: 45, color: NSColor.magentaColor()),
-//            Chart.Pies.Component(value: 55, color: NSColor.redColor()),
-//            Chart.Pies.Component(value: 66, color: NSColor.blueColor())
-//        ]
-//        let pies = Chart.Pies(components: pieComponents)
-//        let piesRenderer = Chart.Renderer(data: pies, fontSize: 100)
-//        let piesTIFFImage = piesRenderer.TIFFImage
-//        let piesImageView = NSImageView()
-//        piesImageView.image = piesTIFFImage
-//        
-//        self.imageStackView?.addView(piesImageView, inGravity: .Bottom)
+        let pieComponents: [ChartDataComponentType] = [
+            Chart.Pies.Component(value: 2, color: NSColor.redColor()),
+            Chart.Pies.Component(value: 3, color: NSColor.blueColor()),
+            Chart.Pies.Component(value: 5, color: NSColor.blueColor()),
+            Chart.Pies.Component(value: 10, color: NSColor.redColor()),
+            Chart.Pies.Component(value: 5, color: NSColor.yellowColor()),
+            Chart.Pies.Component(value: 10, color: NSColor.greenColor()),
+            Chart.Pies.Component(value: 7, color: NSColor.blackColor()),
+            Chart.Pies.Component(value: 5, color: NSColor.grayColor()),
+            Chart.Pies.Component(value: 10, color: NSColor.darkGrayColor()),
+            Chart.Pies.Component(value: 5, color: NSColor.lightGrayColor()),
+            Chart.Pies.Component(value: 5, color: NSColor.cyanColor()),
+            Chart.Pies.Component(value: 5, color: NSColor.magentaColor()),
+            Chart.Pies.Component(value: 5, color: NSColor.redColor()),
+            Chart.Pies.Component(value: 5, color: NSColor.blueColor()),
+            Chart.Pies.Component(value: 5, color: NSColor.redColor()),
+        ]
+        var pies = Chart.Pies(components: pieComponents)
+        for component in pieComponents {
+            pies.appendComponent(component)
+        }
+        let piesRenderer = Chart.Renderer(data: pies, fontSize: 100)
+        let piesTIFFImage = piesRenderer.TIFFImage
+        let piesImageView = NSImageView()
+        piesImageView.image = piesTIFFImage
+        
+        self.imageStackView?.addView(piesImageView, inGravity: .Bottom)
         
         // MARK: Rings
         
@@ -93,7 +103,7 @@ class ChartTestViewController: NSViewController {
         ]
         var rings = Chart.Rings(components: ringComponents)
         for component in ringComponents {
-            let worked = rings.appendComponent(component)
+            let _ = rings.appendComponent(component)
         }
         let ringsRenderer = Chart.Renderer(data: rings, fontSize: 300)
         let ringsTIFFImage = ringsRenderer.TIFFImage

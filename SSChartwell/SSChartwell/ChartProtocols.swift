@@ -40,6 +40,8 @@ struct Chart {
     }
 }
 
+protocol ChartValueDataType: ChartDataType {}
+
 protocol ChartDataType {
     static var max: UInt? { get }
     static var fontName: String { get }
@@ -75,6 +77,49 @@ protocol ChartRendererType {
     // END WORKAROUND
 }
 
+extension ChartValueDataType {
+    init(components: [ChartDataComponentType]) {
+        self.init()
+        if let max = self.dynamicType.max {
+            var inputMaxIndex = 0
+            var inputValueCounter = UInt(0)
+            for (index, component) in components.enumerate() {
+                inputValueCounter += component.value
+                if inputValueCounter <= max {
+                    inputMaxIndex = index
+                } else {
+                    NSLog("Components total value exceeds MAX: \(max). Ignoring \(components.count - inputMaxIndex) components.")
+                    break
+                }
+            }
+            for i in 0...inputMaxIndex {
+                self.components.append(components[i])
+            }
+        } else {
+            self.components = components
+        }
+    }
+    
+    mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool {
+        if let max = self.dynamicType.max {
+            var existingComponentsValue = UInt(0)
+            for component in self.components {
+                existingComponentsValue += component.value
+            }
+            if existingComponentsValue + newComponent.value <= max {
+                self.components.append(newComponent)
+                return true
+            } else {
+                NSLog("Could not append component. Existing Value: \(existingComponentsValue) plus New Value: \(newComponent.value) exceeds MAX: \(max)")
+                return false
+            }
+        } else {
+            self.components.append(newComponent)
+            return true
+        }
+    }
+}
+
 extension ChartDataType {
     init(components: [ChartDataComponentType]) {
         self.init()
@@ -83,7 +128,7 @@ extension ChartDataType {
             if components.count <= maxInt {
                 self.components = components
             } else {
-                NSLog("Components exceed MAX. Using only first \(max) components.")
+                NSLog("Components Count: \(components.count) exceeds MAX. Using only first \(max) components.")
                 (0..<maxInt).forEach() { self.components.append(components[$0]) }
             }
         } else {
@@ -116,7 +161,7 @@ extension ChartDataComponentType {
             if value <= max {
                 self.value = value
             } else {
-                NSLog("Component exceeds MAX. Setting to MAX value: \(max)")
+                NSLog("Value: \(value) exceeds MAX. Setting to MAX value: \(max)")
                 self.value = max
             }
         } else {
