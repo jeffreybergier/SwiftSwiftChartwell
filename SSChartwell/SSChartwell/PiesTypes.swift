@@ -93,3 +93,35 @@ extension Chart.BarsVertical {
     }
 }
 
+// MARK: Generic Chart
+
+struct Chart { }
+
+extension Chart {
+    struct Renderer: ChartRendererType {
+        var data: ChartDataType!
+        var fontSize: CGFloat = 0
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        init() { }
+        // END WORKAROUND
+    }
+}
+
+//            case .Bars:
+//                return "Chartwell Bars"
+//            case .BarsVertical:
+//                return "Chartwell Bars Vertical"
+//            case .Lines:
+//                return "Chartwell Lines"
+//            case .Pies:
+//                return "Chartwell Pies"
+//            case .Radar:
+//                return "Chartwell Radar"
+//            case .Rings:
+//                return "Chartwell Rings"
+//            case .Rose:
+//                return "Chartwell Rose"
+
+
