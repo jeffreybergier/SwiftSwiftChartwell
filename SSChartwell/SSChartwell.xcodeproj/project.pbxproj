@@ -36,27 +36,6 @@
 		73CA8F961C025B3A00674876 /* CocoaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F851C025B3900674876 /* CocoaExtensions.swift */; };
 		73CA8F971C025B3A00674876 /* CocoaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F851C025B3900674876 /* CocoaExtensions.swift */; };
 		73CA8F981C025B3A00674876 /* CocoaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F851C025B3900674876 /* CocoaExtensions.swift */; };
-		73CA8F991C025B3A00674876 /* ChartwellRings.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F861C025B3900674876 /* ChartwellRings.ttf */; };
-		73CA8F9A1C025B3A00674876 /* ChartwellRings.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F861C025B3900674876 /* ChartwellRings.ttf */; };
-		73CA8F9B1C025B3A00674876 /* ChartwellRings.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F861C025B3900674876 /* ChartwellRings.ttf */; };
-		73CA8F9C1C025B3A00674876 /* ChartwellRose.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F871C025B3900674876 /* ChartwellRose.ttf */; };
-		73CA8F9D1C025B3A00674876 /* ChartwellRose.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F871C025B3900674876 /* ChartwellRose.ttf */; };
-		73CA8F9E1C025B3A00674876 /* ChartwellRose.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F871C025B3900674876 /* ChartwellRose.ttf */; };
-		73CA8F9F1C025B3A00674876 /* ChartwellBars.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F881C025B3900674876 /* ChartwellBars.ttf */; };
-		73CA8FA01C025B3A00674876 /* ChartwellBars.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F881C025B3900674876 /* ChartwellBars.ttf */; };
-		73CA8FA11C025B3A00674876 /* ChartwellBars.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F881C025B3900674876 /* ChartwellBars.ttf */; };
-		73CA8FA21C025B3A00674876 /* ChartwellBarsVertical.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F891C025B3900674876 /* ChartwellBarsVertical.ttf */; };
-		73CA8FA31C025B3A00674876 /* ChartwellBarsVertical.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F891C025B3900674876 /* ChartwellBarsVertical.ttf */; };
-		73CA8FA41C025B3A00674876 /* ChartwellBarsVertical.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F891C025B3900674876 /* ChartwellBarsVertical.ttf */; };
-		73CA8FA51C025B3A00674876 /* ChartwellLines.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F8A1C025B3900674876 /* ChartwellLines.ttf */; };
-		73CA8FA61C025B3A00674876 /* ChartwellLines.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F8A1C025B3900674876 /* ChartwellLines.ttf */; };
-		73CA8FA71C025B3A00674876 /* ChartwellLines.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F8A1C025B3900674876 /* ChartwellLines.ttf */; };
-		73CA8FA81C025B3A00674876 /* ChartwellPies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F8B1C025B3900674876 /* ChartwellPies.ttf */; };
-		73CA8FA91C025B3A00674876 /* ChartwellPies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F8B1C025B3900674876 /* ChartwellPies.ttf */; };
-		73CA8FAA1C025B3A00674876 /* ChartwellPies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F8B1C025B3900674876 /* ChartwellPies.ttf */; };
-		73CA8FAB1C025B3A00674876 /* ChartwellRadar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F8C1C025B3900674876 /* ChartwellRadar.ttf */; };
-		73CA8FAC1C025B3A00674876 /* ChartwellRadar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F8C1C025B3900674876 /* ChartwellRadar.ttf */; };
-		73CA8FAD1C025B3A00674876 /* ChartwellRadar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 73CA8F8C1C025B3900674876 /* ChartwellRadar.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,13 +109,6 @@
 		73CA8F831C025B3900674876 /* PiesTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiesTypes.swift; sourceTree = "<group>"; };
 		73CA8F841C025B3900674876 /* ChartProtocolDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartProtocolDeclarations.swift; sourceTree = "<group>"; };
 		73CA8F851C025B3900674876 /* CocoaExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaExtensions.swift; sourceTree = "<group>"; };
-		73CA8F861C025B3900674876 /* ChartwellRings.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellRings.ttf; sourceTree = "<group>"; };
-		73CA8F871C025B3900674876 /* ChartwellRose.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellRose.ttf; sourceTree = "<group>"; };
-		73CA8F881C025B3900674876 /* ChartwellBars.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellBars.ttf; sourceTree = "<group>"; };
-		73CA8F891C025B3900674876 /* ChartwellBarsVertical.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellBarsVertical.ttf; sourceTree = "<group>"; };
-		73CA8F8A1C025B3900674876 /* ChartwellLines.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellLines.ttf; sourceTree = "<group>"; };
-		73CA8F8B1C025B3900674876 /* ChartwellPies.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellPies.ttf; sourceTree = "<group>"; };
-		73CA8F8C1C025B3900674876 /* ChartwellRadar.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChartwellRadar.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,13 +238,6 @@
 				73CA8F821C025B3900674876 /* ChartProtocolExtensions.swift */,
 				73CA8F831C025B3900674876 /* PiesTypes.swift */,
 				73CA8F851C025B3900674876 /* CocoaExtensions.swift */,
-				73CA8F861C025B3900674876 /* ChartwellRings.ttf */,
-				73CA8F871C025B3900674876 /* ChartwellRose.ttf */,
-				73CA8F881C025B3900674876 /* ChartwellBars.ttf */,
-				73CA8F891C025B3900674876 /* ChartwellBarsVertical.ttf */,
-				73CA8F8A1C025B3900674876 /* ChartwellLines.ttf */,
-				73CA8F8B1C025B3900674876 /* ChartwellPies.ttf */,
-				73CA8F8C1C025B3900674876 /* ChartwellRadar.ttf */,
 			);
 			path = SSChartwell_common;
 			sourceTree = "<group>";
@@ -480,13 +445,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73CA8FA81C025B3A00674876 /* ChartwellPies.ttf in Resources */,
-				73CA8FAB1C025B3A00674876 /* ChartwellRadar.ttf in Resources */,
-				73CA8F9C1C025B3A00674876 /* ChartwellRose.ttf in Resources */,
-				73CA8FA21C025B3A00674876 /* ChartwellBarsVertical.ttf in Resources */,
-				73CA8F9F1C025B3A00674876 /* ChartwellBars.ttf in Resources */,
-				73CA8F991C025B3A00674876 /* ChartwellRings.ttf in Resources */,
-				73CA8FA51C025B3A00674876 /* ChartwellLines.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,13 +452,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73CA8FA91C025B3A00674876 /* ChartwellPies.ttf in Resources */,
-				73CA8FAC1C025B3A00674876 /* ChartwellRadar.ttf in Resources */,
-				73CA8F9D1C025B3A00674876 /* ChartwellRose.ttf in Resources */,
-				73CA8FA31C025B3A00674876 /* ChartwellBarsVertical.ttf in Resources */,
-				73CA8FA01C025B3A00674876 /* ChartwellBars.ttf in Resources */,
-				73CA8F9A1C025B3A00674876 /* ChartwellRings.ttf in Resources */,
-				73CA8FA61C025B3A00674876 /* ChartwellLines.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,13 +459,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73CA8FAA1C025B3A00674876 /* ChartwellPies.ttf in Resources */,
-				73CA8FAD1C025B3A00674876 /* ChartwellRadar.ttf in Resources */,
-				73CA8F9E1C025B3A00674876 /* ChartwellRose.ttf in Resources */,
-				73CA8FA41C025B3A00674876 /* ChartwellBarsVertical.ttf in Resources */,
-				73CA8FA11C025B3A00674876 /* ChartwellBars.ttf in Resources */,
-				73CA8F9B1C025B3A00674876 /* ChartwellRings.ttf in Resources */,
-				73CA8FA71C025B3A00674876 /* ChartwellLines.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
