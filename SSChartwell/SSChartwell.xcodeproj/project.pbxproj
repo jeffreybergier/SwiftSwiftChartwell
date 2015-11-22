@@ -32,6 +32,13 @@
 		73CA8F451C02508900674876 /* ChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F431C02508900674876 /* ChartProtocolExtensions.swift */; };
 		73CA8F471C02520E00674876 /* CocoaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F461C02520E00674876 /* CocoaExtensions.swift */; };
 		73CA8F481C02520E00674876 /* CocoaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F461C02520E00674876 /* CocoaExtensions.swift */; };
+		73CA8F491C0255A700674876 /* ChartwellBars.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D41BF2DEF50009799C /* ChartwellBars.ttf */; };
+		73CA8F4A1C0255A700674876 /* ChartwellBarsVertical.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D51BF2DEF50009799C /* ChartwellBarsVertical.ttf */; };
+		73CA8F4B1C0255A700674876 /* ChartwellLines.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D61BF2DEF50009799C /* ChartwellLines.ttf */; };
+		73CA8F4C1C0255A700674876 /* ChartwellPies.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D71BF2DEF50009799C /* ChartwellPies.ttf */; };
+		73CA8F4D1C0255A700674876 /* ChartwellRadar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D81BF2DEF50009799C /* ChartwellRadar.ttf */; };
+		73CA8F4E1C0255A700674876 /* ChartwellRings.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86D91BF2DEF50009799C /* ChartwellRings.ttf */; };
+		73CA8F4F1C0255A700674876 /* ChartwellRose.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 738D86DA1BF2DEF50009799C /* ChartwellRose.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,9 +246,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73CA8F4C1C0255A700674876 /* ChartwellPies.ttf in Resources */,
 				73CA8F3B1C024CA000674876 /* LaunchScreen.storyboard in Resources */,
+				73CA8F4B1C0255A700674876 /* ChartwellLines.ttf in Resources */,
+				73CA8F4A1C0255A700674876 /* ChartwellBarsVertical.ttf in Resources */,
+				73CA8F4E1C0255A700674876 /* ChartwellRings.ttf in Resources */,
 				73CA8F381C024CA000674876 /* Assets.xcassets in Resources */,
+				73CA8F4F1C0255A700674876 /* ChartwellRose.ttf in Resources */,
 				73CA8F361C024CA000674876 /* Main.storyboard in Resources */,
+				73CA8F4D1C0255A700674876 /* ChartwellRadar.ttf in Resources */,
+				73CA8F491C0255A700674876 /* ChartwellBars.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

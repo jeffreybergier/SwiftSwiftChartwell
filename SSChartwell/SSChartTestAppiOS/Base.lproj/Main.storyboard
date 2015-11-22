@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SSChartTestAppiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +16,38 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSF-sV-kVl">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="xCI-ZT-J4X">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="xCI-ZT-J4X" firstAttribute="centerY" secondItem="JSF-sV-kVl" secondAttribute="centerY" placeholder="YES" id="13y-QK-ShV"/>
+                                    <constraint firstAttribute="trailing" secondItem="xCI-ZT-J4X" secondAttribute="trailing" id="1hQ-V5-aVB"/>
+                                    <constraint firstItem="xCI-ZT-J4X" firstAttribute="top" secondItem="JSF-sV-kVl" secondAttribute="top" id="PoM-0o-LHp"/>
+                                    <constraint firstItem="xCI-ZT-J4X" firstAttribute="leading" secondItem="JSF-sV-kVl" secondAttribute="leading" id="QjZ-dk-iKi"/>
+                                    <constraint firstAttribute="bottom" secondItem="xCI-ZT-J4X" secondAttribute="bottom" id="Wc4-iR-lTX"/>
+                                    <constraint firstItem="xCI-ZT-J4X" firstAttribute="centerX" secondItem="JSF-sV-kVl" secondAttribute="centerX" id="gwP-Bl-R6v"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JSF-sV-kVl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="W9G-QQ-6NW"/>
+                            <constraint firstItem="JSF-sV-kVl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="cxp-Ix-9Fb"/>
+                            <constraint firstItem="JSF-sV-kVl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="knw-B0-tSf"/>
+                            <constraint firstItem="JSF-sV-kVl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="mGB-Rn-iDu"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chartStackView" destination="xCI-ZT-J4X" id="x88-EV-X00"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
