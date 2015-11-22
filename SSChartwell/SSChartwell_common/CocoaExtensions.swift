@@ -12,8 +12,8 @@
     import Cocoa
 #endif
 
-extension CTFont {
-    class func chartwellFont(chartType: ChartDataType, pointSize: CGFloat) -> CTFont {
+public extension CTFont {
+    public class func chartwellFont(chartType: ChartDataType, pointSize: CGFloat) -> CTFont {
         let rawFont: CTFont!
         #if os(iOS)
             rawFont = UIFont(name: chartType.dynamicType.fontName, size: pointSize)
@@ -30,8 +30,8 @@ extension CTFont {
     }
 }
 
-extension NSAttributedString {
-    convenience init(chartData: ChartDataType, font: CTFont) {
+public extension NSAttributedString {
+   public convenience init(chartData: ChartDataType, font: CTFont) {
         let mutableAttributedString = NSMutableAttributedString()
         for component in chartData.components {
             mutableAttributedString.appendAttributedString(NSAttributedString(string: "\(component.value)+", attributes: [NSForegroundColorAttributeName : component.color, NSFontAttributeName : font]))
