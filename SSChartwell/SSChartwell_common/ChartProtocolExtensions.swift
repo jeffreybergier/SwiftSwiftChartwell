@@ -6,7 +6,7 @@
 //  Copyright © 2015 Jeffrey Bergier. All rights reserved.
 //
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
     import UIKit
 #elseif os(OSX)
     import Cocoa
