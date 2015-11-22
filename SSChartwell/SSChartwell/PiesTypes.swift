@@ -45,7 +45,7 @@ extension Chart.Pies {
 
 extension Chart {
     struct Rings: ChartDataType {
-        static var max: UInt? = 100
+        static var max: UInt? = 10
         static var fontName: String = "Chartwell Rings"
         var components: [ChartDataComponentType]
         

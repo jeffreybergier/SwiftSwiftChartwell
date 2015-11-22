@@ -72,7 +72,7 @@ class ChartTestViewController: NSViewController {
         let ringComponents: [ChartDataComponentType] = [
             Chart.Rings.Component(value: 10, color: NSColor.redColor()),
             Chart.Rings.Component(value: 20, color: NSColor.blueColor()),
-            Chart.Rings.Component(value: 30, color: NSColor.yellowColor()),
+            Chart.Rings.Component(value: 310, color: NSColor.yellowColor()),
             Chart.Rings.Component(value: 40, color: NSColor.greenColor()),
             Chart.Rings.Component(value: 50, color: NSColor.blackColor()),
             Chart.Rings.Component(value: 60, color: NSColor.grayColor()),
@@ -82,16 +82,19 @@ class ChartTestViewController: NSViewController {
             Chart.Rings.Component(value: 100, color: NSColor.magentaColor()),
             Chart.Rings.Component(value: 55, color: NSColor.redColor()),
             Chart.Rings.Component(value: 66, color: NSColor.blueColor()),
-//            Chart.Rings.Component(value: 75, color: NSColor.blackColor()),
-//            Chart.Rings.Component(value: 89, color: NSColor.grayColor()),
-//            Chart.Rings.Component(value: 45, color: NSColor.darkGrayColor()),
-//            Chart.Rings.Component(value: 22, color: NSColor.lightGrayColor()),
-//            Chart.Rings.Component(value: 12, color: NSColor.cyanColor()),
-//            Chart.Rings.Component(value: 45, color: NSColor.magentaColor()),
-//            Chart.Rings.Component(value: 55, color: NSColor.redColor()),
-//            Chart.Rings.Component(value: 66, color: NSColor.blueColor())
+            Chart.Rings.Component(value: 150, color: NSColor.blackColor()),
+            Chart.Rings.Component(value: 89, color: NSColor.grayColor()),
+            Chart.Rings.Component(value: 170, color: NSColor.darkGrayColor()),
+            Chart.Rings.Component(value: 22, color: NSColor.lightGrayColor()),
+            Chart.Rings.Component(value: 12, color: NSColor.cyanColor()),
+            Chart.Rings.Component(value: 45, color: NSColor.magentaColor()),
+            Chart.Rings.Component(value: 55, color: NSColor.redColor()),
+            Chart.Rings.Component(value: 66, color: NSColor.blueColor())
         ]
-        let rings = Chart.Rings(components: ringComponents)
+        var rings = Chart.Rings(components: ringComponents)
+        for component in ringComponents {
+            let worked = rings.appendComponent(component)
+        }
         let ringsRenderer = Chart.Renderer(data: rings, fontSize: 300)
         let ringsTIFFImage = ringsRenderer.TIFFImage
         let ringsImageView = NSImageView()

@@ -65,7 +65,7 @@ protocol ChartDataComponentType {
 
 protocol ChartRendererType {
     var fontSize: CGFloat { get set }
-    var data: ChartDataType { get set }
+    var data: ChartDataType! { get set }
     var TIFFImage: NSImage { get }
     var PDFImage: NSImage { get }
     init(data: ChartDataType, fontSize: CGFloat)
@@ -79,14 +79,12 @@ extension ChartDataType {
     init(components: [ChartDataComponentType]) {
         self.init()
         if let max = self.dynamicType.max {
-            // If MAX has a value, then we need to make sure we don't exceed the max when appending
-            if components.count < Int(max) {
+            let maxInt = Int(max)
+            if components.count <= maxInt {
                 self.components = components
             } else {
-                for i in 0 ..< Int(max) {
-                    self.components[i] = components[i]
-                }
-                NSLog("Some components omitted because they exceeded the MAX value: \(max)")
+                NSLog("Components exceed MAX. Using only first \(max) components.")
+                (0..<maxInt).forEach() { self.components.append(components[$0]) }
             }
         } else {
             self.components = components
@@ -94,20 +92,15 @@ extension ChartDataType {
     }
     mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool {
         if let max = self.dynamicType.max {
-            // If MAX has a value, then we need to make sure we don't exceed the max when appending
-            var currentValue: UInt = 0
-            for component in self.components {
-                currentValue += component.value
-            }
-            if currentValue + newComponent.value <= max {
+            let maxInt = Int(max)
+            if self.components.count < maxInt {
                 self.components.append(newComponent)
                 return true
             } else {
-                NSLog("New component not appended because the existing components plus the new component exceeded the MAX value: \(max)")
+                NSLog("Failed to append component. Already at MAX: \(max)")
                 return false
             }
         } else {
-            // If MAX is NIL then that means there is no max, so we can always append
             self.components.append(newComponent)
             return true
         }
@@ -117,17 +110,18 @@ extension ChartDataType {
 extension ChartDataComponentType {
     init(value: UInt, color: NSColor) {
         self.init()
+        self.color = color
+        
         if let max = self.dynamicType.max {
             if value <= max {
                 self.value = value
             } else {
-                NSLog("Component exceeds MAX value: \(max)")
+                NSLog("Component exceeds MAX. Setting to MAX value: \(max)")
                 self.value = max
             }
         } else {
             self.value = value
         }
-        self.color = color
     }
 }
 
@@ -160,15 +154,12 @@ extension ChartRendererType {
 
 extension Chart {
     struct Renderer: ChartRendererType {
-        var data: ChartDataType
-        var fontSize: CGFloat
+        var data: ChartDataType!
+        var fontSize: CGFloat = 0
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS
-        init() {
-            self.data = Chart.BarsVertical(components: [])
-            self.fontSize = 0
-        }
+        init() { }
         // END WORKAROUND
     }
 }
