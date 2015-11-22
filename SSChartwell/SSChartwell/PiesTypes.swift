@@ -6,7 +6,8 @@
 //  Copyright © 2015 Jeffrey Bergier. All rights reserved.
 //
 
-import Cocoa
+import CoreGraphics
+import Foundation
 
 // MARK: Pies
 
@@ -27,7 +28,7 @@ extension Chart.Pies {
     struct Component: ChartDataComponentType {
         static var max: UInt? = 100
         var value: UInt = 0
-        var color: NSColor = NSColor.blackColor()
+        var color: CGColor!
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS
@@ -55,7 +56,7 @@ extension Chart.Rings {
     struct Component: ChartDataComponentType {
         static var max: UInt? = 100
         var value: UInt = 0
-        var color: NSColor = NSColor.blackColor()
+        var color: CGColor!
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS
@@ -83,7 +84,7 @@ extension Chart.BarsVertical {
     struct Component: ChartDataComponentType {
         static var max: UInt? = 100
         var value: UInt = 0
-        var color: NSColor = NSColor.blackColor()
+        var color: CGColor!
 
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
         // ISSUES WITH INITIALIZERS

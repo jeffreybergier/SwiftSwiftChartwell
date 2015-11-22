@@ -6,7 +6,12 @@
 //  Copyright © 2015 Jeffrey Bergier. All rights reserved.
 //
 
-import Cocoa
+#if os(iOS)
+    import UIKit
+#elseif os(OSX)
+    import Cocoa
+    import Foundation
+#endif
 
 struct Chart {
     enum Style {
@@ -57,8 +62,8 @@ protocol ChartDataType {
 protocol ChartDataComponentType {
     static var max: UInt? { get }
     var value: UInt { get set }
-    var color: NSColor { get set }
-    init(value: UInt, color: NSColor)
+    var color: CGColor! { get set }
+    init(value: UInt, color: CGColor)
     // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
     // ISSUES WITH INITIALIZERS
     init()
@@ -68,8 +73,12 @@ protocol ChartDataComponentType {
 protocol ChartRendererType {
     var fontSize: CGFloat { get set }
     var data: ChartDataType! { get set }
+    #if os(OSX)
     var TIFFImage: NSImage { get }
     var PDFImage: NSImage { get }
+    #elseif os(iOS)
+    var image: UIImage { get }
+    #endif
     init(data: ChartDataType, fontSize: CGFloat)
     // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
     // ISSUES WITH INITIALIZERS
@@ -153,7 +162,7 @@ extension ChartDataType {
 }
 
 extension ChartDataComponentType {
-    init(value: UInt, color: NSColor) {
+    init(value: UInt, color: CGColor) {
         self.init()
         self.color = color
         
@@ -176,26 +185,46 @@ extension ChartRendererType {
         self.data = data
         self.fontSize = fontSize
     }
-    
-    var TIFFImage: NSImage {
-        let PDFImage = self.PDFImage
-        let TIFF = PDFImage.TIFFRepresentation!
-        let TIFFImage = NSImage(data: TIFF)!
-        return TIFFImage
-    }
-    var PDFImage: NSImage {
-        let font = NSFont.chartwellFont(self.data, pointSize: self.fontSize)
-        let attributedString = NSAttributedString(chartData: self.data, font: font)
-        let renderingView = NSTextField()
-        renderingView.lineBreakMode = NSLineBreakMode.ByClipping
-        renderingView.attributedStringValue = attributedString
-        renderingView.editable = false
-        renderingView.sizeToFit()
-        let PDF = renderingView.dataWithPDFInsideRect(renderingView.bounds)
-        let PDFImage = NSImage(data: PDF)!
-        return PDFImage
-    }
 }
+
+#if os(iOS)
+    extension ChartRendererType {
+        var image: UIImage {
+            let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
+            let attributedString = NSAttributedString(chartData: self.data, font: font)
+            let renderingView = UILabel()
+            renderingView.lineBreakMode = NSLineBreakMode.ByClipping
+            renderingView.attributedText = attributedString
+            renderingView.sizeToFit()
+            UIGraphicsBeginImageContextWithOptions(renderingView.bounds.size, renderingView.opaque, 0.0)
+            renderingView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return image
+        }
+    }
+#elseif os(OSX)
+    extension ChartRendererType {
+        var TIFFImage: NSImage {
+            let PDFImage = self.PDFImage
+            let TIFF = PDFImage.TIFFRepresentation!
+            let TIFFImage = NSImage(data: TIFF)!
+            return TIFFImage
+        }
+        var PDFImage: NSImage {
+            let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
+            let attributedString = NSAttributedString(chartData: self.data, font: font)
+            let renderingView = NSTextField()
+            renderingView.lineBreakMode = NSLineBreakMode.ByClipping
+            renderingView.attributedStringValue = attributedString
+            renderingView.editable = false
+            renderingView.sizeToFit()
+            let PDF = renderingView.dataWithPDFInsideRect(renderingView.bounds)
+            let PDFImage = NSImage(data: PDF)!
+            return PDFImage
+        }
+    }
+#endif
 
 extension Chart {
     struct Renderer: ChartRendererType {
@@ -209,10 +238,16 @@ extension Chart {
     }
 }
 
-extension NSFont {
-    class func chartwellFont(chartType: ChartDataType, pointSize: CGFloat) -> NSFont {
-        let rawFont = NSFont(name: chartType.dynamicType.fontName, size: pointSize)
-        let rawFontDescriptor = CTFontCopyFontDescriptor(rawFont!)
+extension CTFont {
+    class func chartwellFont(chartType: ChartDataType, pointSize: CGFloat) -> CTFont {
+        let rawFont: CTFont!
+        #if os(iOS)
+            rawFont = UIFont(name: chartType.dynamicType.fontName, size: pointSize)
+        #elseif os(OSX)
+            rawFont = NSFont(name: chartType.dynamicType.fontName, size: pointSize)
+        #endif
+        
+        let rawFontDescriptor = CTFontCopyFontDescriptor(rawFont)
         let mutableRawFontDescriptor = CTFontDescriptorCreateCopyWithFeature(rawFontDescriptor,
             NSNumber(int: 35), // Number Case
             NSNumber(int: 2)) // Lining Figures
@@ -222,7 +257,7 @@ extension NSFont {
 }
 
 extension NSAttributedString {
-    convenience init(chartData: ChartDataType, font: NSFont) {
+    convenience init(chartData: ChartDataType, font: CTFont) {
         let mutableAttributedString = NSMutableAttributedString()
         for component in chartData.components {
             mutableAttributedString.appendAttributedString(NSAttributedString(string: "\(component.value)+", attributes: [NSForegroundColorAttributeName : component.color, NSFontAttributeName : font]))

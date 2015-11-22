@@ -18,20 +18,20 @@ class ChartTestViewController: NSViewController {
         // MARK: Bars Vertical 
         
         let barComponents: [ChartDataComponentType] = [
-            Chart.BarsVertical.Component(value: 20, color: NSColor.redColor()),
-            Chart.BarsVertical.Component(value: 50, color: NSColor.blueColor()),
-            Chart.BarsVertical.Component(value: 120, color: NSColor.blueColor()),
-            Chart.BarsVertical.Component(value: 100, color: NSColor.redColor()),
-            Chart.BarsVertical.Component(value: 20, color: NSColor.yellowColor()),
-            Chart.BarsVertical.Component(value: 32, color: NSColor.greenColor()),
-            Chart.BarsVertical.Component(value: 75, color: NSColor.blackColor()),
-            Chart.BarsVertical.Component(value: 89, color: NSColor.grayColor()),
-            Chart.BarsVertical.Component(value: 45, color: NSColor.darkGrayColor()),
-            Chart.BarsVertical.Component(value: 22, color: NSColor.lightGrayColor()),
-            Chart.BarsVertical.Component(value: 12, color: NSColor.cyanColor()),
-            Chart.BarsVertical.Component(value: 45, color: NSColor.magentaColor()),
-            Chart.BarsVertical.Component(value: 55, color: NSColor.redColor()),
-            Chart.BarsVertical.Component(value: 66, color: NSColor.blueColor())
+            Chart.BarsVertical.Component(value: 20, color: NSColor.redColor().CGColor),
+            Chart.BarsVertical.Component(value: 50, color: NSColor.blueColor().CGColor),
+            Chart.BarsVertical.Component(value: 120, color: NSColor.blueColor().CGColor),
+            Chart.BarsVertical.Component(value: 100, color: NSColor.redColor().CGColor),
+            Chart.BarsVertical.Component(value: 20, color: NSColor.yellowColor().CGColor),
+            Chart.BarsVertical.Component(value: 32, color: NSColor.greenColor().CGColor),
+            Chart.BarsVertical.Component(value: 75, color: NSColor.blackColor().CGColor),
+            Chart.BarsVertical.Component(value: 89, color: NSColor.grayColor().CGColor),
+            Chart.BarsVertical.Component(value: 45, color: NSColor.darkGrayColor().CGColor),
+            Chart.BarsVertical.Component(value: 22, color: NSColor.lightGrayColor().CGColor),
+            Chart.BarsVertical.Component(value: 12, color: NSColor.cyanColor().CGColor),
+            Chart.BarsVertical.Component(value: 45, color: NSColor.magentaColor().CGColor),
+            Chart.BarsVertical.Component(value: 55, color: NSColor.redColor().CGColor),
+            Chart.BarsVertical.Component(value: 66, color: NSColor.blueColor().CGColor)
         ]
         var barsVertical = Chart.BarsVertical(components: barComponents)
         for component in barComponents {
@@ -50,21 +50,21 @@ class ChartTestViewController: NSViewController {
         // MARK: Pies
         
         let pieComponents: [ChartDataComponentType] = [
-            Chart.Pies.Component(value: 2, color: NSColor.redColor()),
-            Chart.Pies.Component(value: 3, color: NSColor.blueColor()),
-            Chart.Pies.Component(value: 5, color: NSColor.blueColor()),
-            Chart.Pies.Component(value: 10, color: NSColor.redColor()),
-            Chart.Pies.Component(value: 5, color: NSColor.yellowColor()),
-            Chart.Pies.Component(value: 10, color: NSColor.greenColor()),
-            Chart.Pies.Component(value: 7, color: NSColor.blackColor()),
-            Chart.Pies.Component(value: 5, color: NSColor.grayColor()),
-            Chart.Pies.Component(value: 10, color: NSColor.darkGrayColor()),
-            Chart.Pies.Component(value: 5, color: NSColor.lightGrayColor()),
-            Chart.Pies.Component(value: 5, color: NSColor.cyanColor()),
-            Chart.Pies.Component(value: 5, color: NSColor.magentaColor()),
-            Chart.Pies.Component(value: 5, color: NSColor.redColor()),
-            Chart.Pies.Component(value: 5, color: NSColor.blueColor()),
-            Chart.Pies.Component(value: 5, color: NSColor.redColor()),
+            Chart.Pies.Component(value: 2, color: NSColor.redColor().CGColor),
+            Chart.Pies.Component(value: 3, color: NSColor.blueColor().CGColor),
+            Chart.Pies.Component(value: 5, color: NSColor.blueColor().CGColor),
+            Chart.Pies.Component(value: 10, color: NSColor.redColor().CGColor),
+            Chart.Pies.Component(value: 5, color: NSColor.yellowColor().CGColor),
+            Chart.Pies.Component(value: 10, color: NSColor.greenColor().CGColor),
+            Chart.Pies.Component(value: 7, color: NSColor.blackColor().CGColor),
+            Chart.Pies.Component(value: 5, color: NSColor.grayColor().CGColor),
+            Chart.Pies.Component(value: 10, color: NSColor.darkGrayColor().CGColor),
+            Chart.Pies.Component(value: 5, color: NSColor.lightGrayColor().CGColor),
+            Chart.Pies.Component(value: 5, color: NSColor.cyanColor().CGColor),
+            Chart.Pies.Component(value: 5, color: NSColor.magentaColor().CGColor),
+            Chart.Pies.Component(value: 5, color: NSColor.redColor().CGColor),
+            Chart.Pies.Component(value: 5, color: NSColor.blueColor().CGColor),
+            Chart.Pies.Component(value: 5, color: NSColor.redColor().CGColor),
         ]
         var pies = Chart.Pies(components: pieComponents)
         for component in pieComponents {
@@ -80,26 +80,26 @@ class ChartTestViewController: NSViewController {
         // MARK: Rings
         
         let ringComponents: [ChartDataComponentType] = [
-            Chart.Rings.Component(value: 10, color: NSColor.redColor()),
-            Chart.Rings.Component(value: 20, color: NSColor.blueColor()),
-            Chart.Rings.Component(value: 310, color: NSColor.yellowColor()),
-            Chart.Rings.Component(value: 40, color: NSColor.greenColor()),
-            Chart.Rings.Component(value: 50, color: NSColor.blackColor()),
-            Chart.Rings.Component(value: 60, color: NSColor.grayColor()),
-            Chart.Rings.Component(value: 70, color: NSColor.darkGrayColor()),
-            Chart.Rings.Component(value: 80, color: NSColor.lightGrayColor()),
-            Chart.Rings.Component(value: 90, color: NSColor.cyanColor()),
-            Chart.Rings.Component(value: 100, color: NSColor.magentaColor()),
-            Chart.Rings.Component(value: 55, color: NSColor.redColor()),
-            Chart.Rings.Component(value: 66, color: NSColor.blueColor()),
-            Chart.Rings.Component(value: 150, color: NSColor.blackColor()),
-            Chart.Rings.Component(value: 89, color: NSColor.grayColor()),
-            Chart.Rings.Component(value: 170, color: NSColor.darkGrayColor()),
-            Chart.Rings.Component(value: 22, color: NSColor.lightGrayColor()),
-            Chart.Rings.Component(value: 12, color: NSColor.cyanColor()),
-            Chart.Rings.Component(value: 45, color: NSColor.magentaColor()),
-            Chart.Rings.Component(value: 55, color: NSColor.redColor()),
-            Chart.Rings.Component(value: 66, color: NSColor.blueColor())
+            Chart.Rings.Component(value: 10, color: NSColor.redColor().CGColor),
+            Chart.Rings.Component(value: 20, color: NSColor.blueColor().CGColor),
+            Chart.Rings.Component(value: 310, color: NSColor.yellowColor().CGColor),
+            Chart.Rings.Component(value: 40, color: NSColor.greenColor().CGColor),
+            Chart.Rings.Component(value: 50, color: NSColor.blackColor().CGColor),
+            Chart.Rings.Component(value: 60, color: NSColor.grayColor().CGColor),
+            Chart.Rings.Component(value: 70, color: NSColor.darkGrayColor().CGColor),
+            Chart.Rings.Component(value: 80, color: NSColor.lightGrayColor().CGColor),
+            Chart.Rings.Component(value: 90, color: NSColor.cyanColor().CGColor),
+            Chart.Rings.Component(value: 100, color: NSColor.magentaColor().CGColor),
+            Chart.Rings.Component(value: 55, color: NSColor.redColor().CGColor),
+            Chart.Rings.Component(value: 66, color: NSColor.blueColor().CGColor),
+            Chart.Rings.Component(value: 150, color: NSColor.blackColor().CGColor),
+            Chart.Rings.Component(value: 89, color: NSColor.grayColor().CGColor),
+            Chart.Rings.Component(value: 170, color: NSColor.darkGrayColor().CGColor),
+            Chart.Rings.Component(value: 22, color: NSColor.lightGrayColor().CGColor),
+            Chart.Rings.Component(value: 12, color: NSColor.cyanColor().CGColor),
+            Chart.Rings.Component(value: 45, color: NSColor.magentaColor().CGColor),
+            Chart.Rings.Component(value: 55, color: NSColor.redColor().CGColor),
+            Chart.Rings.Component(value: 66, color: NSColor.blueColor().CGColor)
         ]
         var rings = Chart.Rings(components: ringComponents)
         for component in ringComponents {
