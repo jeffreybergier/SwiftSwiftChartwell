@@ -12,8 +12,8 @@
     import Cocoa
 #endif
 
-extension ChartValueDataType {
-    init(components: [ChartDataComponentType]) {
+public extension ChartValueDataType {
+    public init(components: [ChartDataComponentType]) {
         self.init()
         if let max = self.dynamicType.max {
             var inputMaxIndex = 0
@@ -35,7 +35,7 @@ extension ChartValueDataType {
         }
     }
     
-    mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool {
+    public mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool {
         if let max = self.dynamicType.max {
             var existingComponentsValue = UInt(0)
             for component in self.components {
@@ -55,8 +55,8 @@ extension ChartValueDataType {
     }
 }
 
-extension ChartDataType {
-    init(components: [ChartDataComponentType]) {
+public extension ChartDataType {
+    public init(components: [ChartDataComponentType]) {
         self.init()
         if let max = self.dynamicType.max {
             let maxInt = Int(max)
@@ -70,7 +70,8 @@ extension ChartDataType {
             self.components = components
         }
     }
-    mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool {
+    
+    public mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool {
         if let max = self.dynamicType.max {
             let maxInt = Int(max)
             if self.components.count < maxInt {
@@ -87,8 +88,8 @@ extension ChartDataType {
     }
 }
 
-extension ChartDataComponentType {
-    init(value: UInt, color: CGColor) {
+public extension ChartDataComponentType {
+    public init(value: UInt, color: CGColor) {
         self.init()
         self.color = color
         
@@ -105,8 +106,8 @@ extension ChartDataComponentType {
     }
 }
 
-extension ChartRendererType {
-    init(data: ChartDataType, fontSize: CGFloat) {
+public extension ChartRendererType {
+    public init(data: ChartDataType, fontSize: CGFloat) {
         self.init()
         self.data = data
         self.fontSize = fontSize
@@ -114,8 +115,8 @@ extension ChartRendererType {
 }
 
 #if os(iOS)
-    extension ChartRendererType {
-        var image: UIImage {
+    public extension ChartRendererType {
+        public var image: UIImage {
             let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
             let attributedString = NSAttributedString(chartData: self.data, font: font)
             let renderingView = UILabel()
@@ -131,14 +132,14 @@ extension ChartRendererType {
         }
     }
 #elseif os(OSX)
-    extension ChartRendererType {
-        var TIFFImage: NSImage {
+    public extension ChartRendererType {
+        public var TIFFImage: NSImage {
             let PDFImage = self.PDFImage
             let TIFF = PDFImage.TIFFRepresentation!
             let TIFFImage = NSImage(data: TIFF)!
             return TIFFImage
         }
-        var PDFImage: NSImage {
+        public var PDFImage: NSImage {
             let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
             let attributedString = NSAttributedString(chartData: self.data, font: font)
             let renderingView = NSTextField()

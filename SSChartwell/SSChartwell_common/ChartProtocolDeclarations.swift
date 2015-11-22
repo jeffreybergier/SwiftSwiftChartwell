@@ -12,9 +12,9 @@
     import Cocoa
 #endif
 
-protocol ChartValueDataType: ChartDataType {}
+public protocol ChartValueDataType: ChartDataType {}
 
-protocol ChartDataType {
+public protocol ChartDataType {
     static var max: UInt? { get }
     static var fontName: String { get }
     var components: [ChartDataComponentType] { get set }
@@ -26,7 +26,7 @@ protocol ChartDataType {
     // END WORKAROUND
 }
 
-protocol ChartDataComponentType {
+public protocol ChartDataComponentType {
     static var max: UInt? { get }
     var value: UInt { get set }
     var color: CGColor! { get set }
@@ -37,7 +37,7 @@ protocol ChartDataComponentType {
     // END WORKAROUND
 }
 
-protocol ChartRendererType {
+public protocol ChartRendererType {
     var fontSize: CGFloat { get set }
     var data: ChartDataType! { get set }
     #if os(OSX)

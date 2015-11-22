@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SSChartwell
 
 class ChartTestViewController: NSViewController {
     
