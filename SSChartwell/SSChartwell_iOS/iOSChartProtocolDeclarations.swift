@@ -11,7 +11,8 @@ import UIKit
 public protocol ChartRendererType {
     var fontSize: CGFloat { get set }
     var data: ChartDataType! { get set }
-    var image: UIImage { get }
+    var image: UIImage? { get }
+    func generateAnimatedImagesWithFrameCount(frameCount: UInt, completionHandler: ([UIImage] -> Void))
     init?(data: ChartDataType, fontSize: CGFloat)
     // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
     // ISSUES WITH INITIALIZERS
