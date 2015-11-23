@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "73CA8F541C025A2C00674876"
-               BuildableName = "SSChartwell.framework"
+               BuildableName = "SSChartwell_macOS.framework"
                BlueprintName = "SSChartwell_macOS"
                ReferencedContainer = "container:SSChartwell.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "73CA8F541C025A2C00674876"
-            BuildableName = "SSChartwell.framework"
+            BuildableName = "SSChartwell_macOS.framework"
             BlueprintName = "SSChartwell_macOS"
             ReferencedContainer = "container:SSChartwell.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "73CA8F541C025A2C00674876"
-            BuildableName = "SSChartwell.framework"
+            BuildableName = "SSChartwell_macOS.framework"
             BlueprintName = "SSChartwell_macOS"
             ReferencedContainer = "container:SSChartwell.xcodeproj">
          </BuildableReference>

@@ -35,13 +35,13 @@
 		73A8044D1C02B9FA00C2823E /* MacChartProtocolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacChartProtocolExtensions.swift; sourceTree = "<group>"; };
 		73A8044F1C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSChartProtocolDeclarations.swift; sourceTree = "<group>"; };
 		73A804521C02BA7D00C2823E /* MacChartProtocolDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacChartProtocolDeclarations.swift; sourceTree = "<group>"; };
-		73CA8F551C025A2C00674876 /* SSChartwell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSChartwell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73CA8F551C025A2C00674876 /* SSChartwell_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSChartwell_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CA8F571C025A2C00674876 /* SSChartwell_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSChartwell_macOS.h; sourceTree = "<group>"; };
 		73CA8F591C025A2C00674876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73CA8F671C025A4100674876 /* SSChartwell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSChartwell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73CA8F671C025A4100674876 /* SSChartwell_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSChartwell_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CA8F691C025A4100674876 /* SSChartwell_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSChartwell_tvOS.h; sourceTree = "<group>"; };
 		73CA8F6B1C025A4100674876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73CA8F741C025A5800674876 /* SSChartwell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSChartwell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73CA8F741C025A5800674876 /* SSChartwell_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSChartwell_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CA8F761C025A5800674876 /* SSChartwell_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSChartwell_iOS.h; sourceTree = "<group>"; };
 		73CA8F781C025A5800674876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73CA8F821C025B3900674876 /* ChartProtocolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartProtocolExtensions.swift; sourceTree = "<group>"; };
@@ -89,9 +89,9 @@
 		738D86B91BF2DA820009799C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				73CA8F551C025A2C00674876 /* SSChartwell.framework */,
-				73CA8F671C025A4100674876 /* SSChartwell.framework */,
-				73CA8F741C025A5800674876 /* SSChartwell.framework */,
+				73CA8F551C025A2C00674876 /* SSChartwell_macOS.framework */,
+				73CA8F671C025A4100674876 /* SSChartwell_tvOS.framework */,
+				73CA8F741C025A5800674876 /* SSChartwell_iOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,7 +183,7 @@
 			);
 			name = SSChartwell_macOS;
 			productName = SSChartwell_macOS;
-			productReference = 73CA8F551C025A2C00674876 /* SSChartwell.framework */;
+			productReference = 73CA8F551C025A2C00674876 /* SSChartwell_macOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		73CA8F661C025A4100674876 /* SSChartwell_tvOS */ = {
@@ -201,7 +201,7 @@
 			);
 			name = SSChartwell_tvOS;
 			productName = SSChartwell_tvOS;
-			productReference = 73CA8F671C025A4100674876 /* SSChartwell.framework */;
+			productReference = 73CA8F671C025A4100674876 /* SSChartwell_tvOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		73CA8F731C025A5800674876 /* SSChartwell_iOS */ = {
@@ -219,7 +219,7 @@
 			);
 			name = SSChartwell_iOS;
 			productName = SSChartwell_iOS;
-			productReference = 73CA8F741C025A5800674876 /* SSChartwell.framework */;
+			productReference = 73CA8F741C025A5800674876 /* SSChartwell_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -428,7 +428,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saturdayapps.SSChartwell-macOS";
-				PRODUCT_NAME = SSChartwell;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -453,7 +454,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saturdayapps.SSChartwell-macOS";
-				PRODUCT_NAME = SSChartwell;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -474,7 +476,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saturdayapps.SSChartwell-tvOS";
-				PRODUCT_NAME = SSChartwell;
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -499,7 +501,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saturdayapps.SSChartwell-tvOS";
-				PRODUCT_NAME = SSChartwell;
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -526,7 +528,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saturdayapps.SSChartwell-iOS";
-				PRODUCT_NAME = SSChartwell;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -552,7 +555,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saturdayapps.SSChartwell-iOS";
-				PRODUCT_NAME = SSChartwell;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
+				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
