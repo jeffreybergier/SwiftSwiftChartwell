@@ -105,7 +105,7 @@ public extension ChartDataComponentType {
 
 public extension ChartRendererType {
     public init?(data: ChartDataType, fontSize: CGFloat) {
-        if Chart.FontLoader.sharedManager.fontAvailableForStyle(data.dynamicType.style) == false {
+        if Chart.FontLoader.sharedInstance.fontAvailableForStyle(data.dynamicType.style) == false {
             return nil
         }
         

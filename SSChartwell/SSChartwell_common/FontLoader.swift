@@ -8,7 +8,7 @@
 
 public extension Chart {
     public class FontLoader {
-        public static let sharedManager = FontLoader()
+        public static let sharedInstance = FontLoader()
         
         public static let attemptedFonts = [
             Chart.Style.Bars,
@@ -27,11 +27,20 @@ public extension Chart {
             var availableFonts: [Chart.Style] = []
             var failedFonts: [Chart.Style] = []
             for fontStyle in self.dynamicType.attemptedFonts {
-                if let font = NSBundle.mainBundle().URLForResource(fontStyle.fontFileName, withExtension: "ttf") {
-                    CTFontManagerRegisterFontsForURL(font, CTFontManagerScope.Process, nil)
+                #if os(iOS) || os(tvOS)
+                    let optionalFont = UIFont(name: fontStyle.fontName, size: 20)
+                #elseif os(OSX)
+                    let optionalFont = NSFont(name: fontStyle.fontName, size: 20)
+                #endif
+                if let _ = optionalFont {
                     availableFonts.append(fontStyle)
                 } else {
-                    failedFonts.append(fontStyle)
+                    if let font = NSBundle.mainBundle().URLForResource(fontStyle.fontFileName, withExtension: "ttf") {
+                        CTFontManagerRegisterFontsForURL(font, CTFontManagerScope.Process, nil)
+                        availableFonts.append(fontStyle)
+                    } else {
+                        failedFonts.append(fontStyle)
+                    }
                 }
             }
             
