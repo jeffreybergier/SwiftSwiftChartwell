@@ -15,6 +15,7 @@ public extension Chart {
     public struct Pies: ChartValueDataType {
         public static var max: UInt? = 100
         public static var style: Chart.Style = Chart.Style.Pies
+        public static var componentType: ChartDataComponentType.Type = Chart.Pies.Component.self
         public var components: [ChartDataComponentType] = []
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
@@ -43,6 +44,7 @@ public extension Chart {
     public struct Rings: ChartDataType {
         public static var max: UInt? = 10
         public static var style: Chart.Style = Chart.Style.Rings
+        public static var componentType: ChartDataComponentType.Type = Chart.Rings.Component.self
         public var components: [ChartDataComponentType] = []
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
@@ -71,6 +73,7 @@ public extension Chart {
     public struct BarsVertical: ChartDataType {
         public static var max: UInt? = .None
         public static var style: Chart.Style = Chart.Style.BarsVertical
+        public static var componentType: ChartDataComponentType.Type = Chart.BarsVertical.Component.self
         public var components: [ChartDataComponentType] = []
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
@@ -98,6 +101,25 @@ public extension Chart.BarsVertical {
 public struct Chart {
     public enum Style {
         case Bars, BarsVertical, Lines, Pies, Radar, Rings, Rose
+        
+        public var associatedType: ChartDataType.Type {
+            switch self {
+            case .Bars:
+                return Chart.BarsVertical.self
+            case .BarsVertical:
+                return Chart.BarsVertical.self
+            case .Lines:
+                return Chart.BarsVertical.self
+            case .Pies:
+                return Chart.Pies.self
+            case .Radar:
+                return Chart.BarsVertical.self
+            case .Rings:
+                return Chart.Rings.self
+            case .Rose:
+                return Chart.BarsVertical.self
+            }
+        }
         
         public var fontName: String {
             switch self {
