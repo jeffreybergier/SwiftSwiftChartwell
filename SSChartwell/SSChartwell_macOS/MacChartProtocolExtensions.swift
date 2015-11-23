@@ -19,10 +19,6 @@ public extension ChartRendererType {
         let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
         let attributedString = NSAttributedString(chartData: self.data, font: font)
         let renderingView = NSTextField()
-        if #available(OSX 10.10, *) {
-            renderingView.usesSingleLineMode = true
-            renderingView.lineBreakMode = .ByClipping
-        }
         renderingView.attributedStringValue = attributedString
         renderingView.editable = false
         renderingView.sizeToFit()
