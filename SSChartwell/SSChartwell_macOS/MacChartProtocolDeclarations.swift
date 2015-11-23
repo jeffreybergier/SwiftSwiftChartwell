@@ -13,7 +13,7 @@ public protocol ChartRendererType {
     var data: ChartDataType! { get set }
     var TIFFImage: NSImage { get }
     var PDFImage: NSImage { get }
-    init(data: ChartDataType, fontSize: CGFloat)
+    init?(data: ChartDataType, fontSize: CGFloat)
     // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
     // ISSUES WITH INITIALIZERS
     init()

@@ -28,6 +28,9 @@
 		73CA8F961C025B3A00674876 /* CocoaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F851C025B3900674876 /* CocoaExtensions.swift */; };
 		73CA8F971C025B3A00674876 /* CocoaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F851C025B3900674876 /* CocoaExtensions.swift */; };
 		73CA8F981C025B3A00674876 /* CocoaExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F851C025B3900674876 /* CocoaExtensions.swift */; };
+		73FCC3941C02CEFB00C4F8CC /* FontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCC3931C02CEFB00C4F8CC /* FontLoader.swift */; };
+		73FCC3951C02CEFB00C4F8CC /* FontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCC3931C02CEFB00C4F8CC /* FontLoader.swift */; };
+		73FCC3961C02CEFC00C4F8CC /* FontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCC3931C02CEFB00C4F8CC /* FontLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,7 @@
 		73CA8F831C025B3900674876 /* PiesTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiesTypes.swift; sourceTree = "<group>"; };
 		73CA8F841C025B3900674876 /* ChartProtocolDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartProtocolDeclarations.swift; sourceTree = "<group>"; };
 		73CA8F851C025B3900674876 /* CocoaExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaExtensions.swift; sourceTree = "<group>"; };
+		73FCC3931C02CEFB00C4F8CC /* FontLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				73CA8F821C025B3900674876 /* ChartProtocolExtensions.swift */,
 				73CA8F831C025B3900674876 /* PiesTypes.swift */,
 				73CA8F851C025B3900674876 /* CocoaExtensions.swift */,
+				73FCC3931C02CEFB00C4F8CC /* FontLoader.swift */,
 			);
 			path = SSChartwell_common;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			files = (
 				73CA8F901C025B3A00674876 /* PiesTypes.swift in Sources */,
 				73A8044E1C02B9FA00C2823E /* MacChartProtocolExtensions.swift in Sources */,
+				73FCC3941C02CEFB00C4F8CC /* FontLoader.swift in Sources */,
 				73CA8F961C025B3A00674876 /* CocoaExtensions.swift in Sources */,
 				73CA8F931C025B3A00674876 /* ChartProtocolDeclarations.swift in Sources */,
 				73CA8F8D1C025B3900674876 /* ChartProtocolExtensions.swift in Sources */,
@@ -308,6 +314,7 @@
 			files = (
 				73A8044B1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */,
 				73CA8F911C025B3A00674876 /* PiesTypes.swift in Sources */,
+				73FCC3951C02CEFB00C4F8CC /* FontLoader.swift in Sources */,
 				73CA8F971C025B3A00674876 /* CocoaExtensions.swift in Sources */,
 				73A804501C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift in Sources */,
 				73CA8F941C025B3A00674876 /* ChartProtocolDeclarations.swift in Sources */,
@@ -321,6 +328,7 @@
 			files = (
 				73A8044C1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */,
 				73CA8F921C025B3A00674876 /* PiesTypes.swift in Sources */,
+				73FCC3961C02CEFC00C4F8CC /* FontLoader.swift in Sources */,
 				73CA8F981C025B3A00674876 /* CocoaExtensions.swift in Sources */,
 				73A804511C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift in Sources */,
 				73CA8F951C025B3A00674876 /* ChartProtocolDeclarations.swift in Sources */,

@@ -16,9 +16,9 @@
         public class func chartwellFont(chartType: ChartDataType, pointSize: CGFloat) -> CTFont {
             let rawFont: CTFont!
             #if os(iOS) || os(tvOS)
-                rawFont = UIFont(name: chartType.dynamicType.fontName, size: pointSize)
+                rawFont = UIFont(name: chartType.dynamicType.style.fontName, size: pointSize)
             #elseif os(OSX)
-                rawFont = NSFont(name: chartType.dynamicType.fontName, size: pointSize)
+                rawFont = NSFont(name: chartType.dynamicType.style.fontName, size: pointSize)
             #endif
             
             let rawFontDescriptor = CTFontCopyFontDescriptor(rawFont)

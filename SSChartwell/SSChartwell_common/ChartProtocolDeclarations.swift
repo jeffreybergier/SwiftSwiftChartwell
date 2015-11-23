@@ -13,7 +13,7 @@ public protocol ChartValueDataType: ChartDataType {}
 
 public protocol ChartDataType {
     static var max: UInt? { get }
-    static var fontName: String { get }
+    static var style: Chart.Style { get }
     var components: [ChartDataComponentType] { get set }
     init(components: [ChartDataComponentType])
     mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool

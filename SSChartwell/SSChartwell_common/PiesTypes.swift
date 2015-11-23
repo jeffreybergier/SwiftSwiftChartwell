@@ -14,7 +14,7 @@ import Foundation
 public extension Chart {
     public struct Pies: ChartValueDataType {
         public static var max: UInt? = 100
-        public static var fontName: String = "Chartwell Pies"
+        public static var style: Chart.Style = Chart.Style.Pies
         public var components: [ChartDataComponentType] = []
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
@@ -42,7 +42,7 @@ public extension Chart.Pies {
 public extension Chart {
     public struct Rings: ChartDataType {
         public static var max: UInt? = 10
-        public static var fontName: String = "Chartwell Rings"
+        public static var style: Chart.Style = Chart.Style.Rings
         public var components: [ChartDataComponentType] = []
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
@@ -70,7 +70,7 @@ public extension Chart.Rings {
 public extension Chart {
     public struct BarsVertical: ChartDataType {
         public static var max: UInt? = .None
-        public static var fontName: String = "Chartwell Bars Vertical"
+        public static var style: Chart.Style = Chart.Style.BarsVertical
         public var components: [ChartDataComponentType] = []
         
         // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
@@ -95,7 +95,49 @@ public extension Chart.BarsVertical {
 
 // MARK: Generic Chart
 
-public struct Chart { }
+public struct Chart {
+    public enum Style {
+        case Bars, BarsVertical, Lines, Pies, Radar, Rings, Rose
+        
+        public var fontName: String {
+            switch self {
+            case .Bars:
+                return "Chartwell Bars"
+            case .BarsVertical:
+                return "Chartwell Bars Vertical"
+            case .Lines:
+                return "Chartwell Lines"
+            case .Pies:
+                return "Chartwell Pies"
+            case .Radar:
+                return "Chartwell Radar"
+            case .Rings:
+                return "Chartwell Rings"
+            case .Rose:
+                return "Chartwell Rose"
+            }
+        }
+        
+        public var fontFileName: String {
+            switch self {
+            case .Bars:
+                return "ChartwellBars"
+            case .BarsVertical:
+                return "ChartwellBarsVertical"
+            case .Lines:
+                return "ChartwellLines"
+            case .Pies:
+                return "ChartwellPies"
+            case .Radar:
+                return "ChartwellRadar"
+            case .Rings:
+                return "ChartwellRings"
+            case .Rose:
+                return "ChartwellRose"
+            }
+        }
+    }
+}
 
 public extension Chart {
     public struct Renderer: ChartRendererType {
@@ -108,20 +150,5 @@ public extension Chart {
         // END WORKAROUND
     }
 }
-
-//            case .Bars:
-//                return "Chartwell Bars"
-//            case .BarsVertical:
-//                return "Chartwell Bars Vertical"
-//            case .Lines:
-//                return "Chartwell Lines"
-//            case .Pies:
-//                return "Chartwell Pies"
-//            case .Radar:
-//                return "Chartwell Radar"
-//            case .Rings:
-//                return "Chartwell Rings"
-//            case .Rose:
-//                return "Chartwell Rose"
 
 
