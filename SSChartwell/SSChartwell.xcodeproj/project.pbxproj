@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73A8044B1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */; };
+		73A8044C1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */; };
+		73A8044E1C02B9FA00C2823E /* MacChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044D1C02B9FA00C2823E /* MacChartProtocolExtensions.swift */; };
+		73A804501C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044F1C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift */; };
+		73A804511C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044F1C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift */; };
+		73A804531C02BA7D00C2823E /* MacChartProtocolDeclarations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A804521C02BA7D00C2823E /* MacChartProtocolDeclarations.swift */; };
 		73CA8F581C025A2C00674876 /* SSChartwell_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 73CA8F571C025A2C00674876 /* SSChartwell_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73CA8F6A1C025A4100674876 /* SSChartwell_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 73CA8F691C025A4100674876 /* SSChartwell_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73CA8F771C025A5800674876 /* SSChartwell_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 73CA8F761C025A5800674876 /* SSChartwell_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSChartProtocolExtensions.swift; sourceTree = "<group>"; };
+		73A8044D1C02B9FA00C2823E /* MacChartProtocolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacChartProtocolExtensions.swift; sourceTree = "<group>"; };
+		73A8044F1C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSChartProtocolDeclarations.swift; sourceTree = "<group>"; };
+		73A804521C02BA7D00C2823E /* MacChartProtocolDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacChartProtocolDeclarations.swift; sourceTree = "<group>"; };
 		73CA8F551C025A2C00674876 /* SSChartwell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSChartwell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CA8F571C025A2C00674876 /* SSChartwell_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSChartwell_macOS.h; sourceTree = "<group>"; };
 		73CA8F591C025A2C00674876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				73CA8F571C025A2C00674876 /* SSChartwell_macOS.h */,
+				73A804521C02BA7D00C2823E /* MacChartProtocolDeclarations.swift */,
+				73A8044D1C02B9FA00C2823E /* MacChartProtocolExtensions.swift */,
 				73CA8F591C025A2C00674876 /* Info.plist */,
 			);
 			path = SSChartwell_macOS;
@@ -108,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				73CA8F761C025A5800674876 /* SSChartwell_iOS.h */,
+				73A8044F1C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift */,
+				73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */,
 				73CA8F781C025A5800674876 /* Info.plist */,
 			);
 			path = SSChartwell_iOS;
@@ -280,9 +294,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				73CA8F901C025B3A00674876 /* PiesTypes.swift in Sources */,
+				73A8044E1C02B9FA00C2823E /* MacChartProtocolExtensions.swift in Sources */,
 				73CA8F961C025B3A00674876 /* CocoaExtensions.swift in Sources */,
 				73CA8F931C025B3A00674876 /* ChartProtocolDeclarations.swift in Sources */,
 				73CA8F8D1C025B3900674876 /* ChartProtocolExtensions.swift in Sources */,
+				73A804531C02BA7D00C2823E /* MacChartProtocolDeclarations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73A8044B1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */,
 				73CA8F911C025B3A00674876 /* PiesTypes.swift in Sources */,
 				73CA8F971C025B3A00674876 /* CocoaExtensions.swift in Sources */,
+				73A804501C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift in Sources */,
 				73CA8F941C025B3A00674876 /* ChartProtocolDeclarations.swift in Sources */,
 				73CA8F8E1C025B3A00674876 /* ChartProtocolExtensions.swift in Sources */,
 			);
@@ -301,8 +319,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73A8044C1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */,
 				73CA8F921C025B3A00674876 /* PiesTypes.swift in Sources */,
 				73CA8F981C025B3A00674876 /* CocoaExtensions.swift in Sources */,
+				73A804511C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift in Sources */,
 				73CA8F951C025B3A00674876 /* ChartProtocolDeclarations.swift in Sources */,
 				73CA8F8F1C025B3A00674876 /* ChartProtocolExtensions.swift in Sources */,
 			);

@@ -6,11 +6,7 @@
 //  Copyright © 2015 Jeffrey Bergier. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
-    import UIKit
-#elseif os(OSX)
-    import Cocoa
-#endif
+import Foundation
 
 public protocol ChartValueDataType: ChartDataType {}
 
@@ -31,22 +27,6 @@ public protocol ChartDataComponentType {
     var value: UInt { get set }
     var color: CGColor! { get set }
     init(value: UInt, color: CGColor)
-    // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
-    // ISSUES WITH INITIALIZERS
-    init()
-    // END WORKAROUND
-}
-
-public protocol ChartRendererType {
-    var fontSize: CGFloat { get set }
-    var data: ChartDataType! { get set }
-    #if os(OSX)
-    var TIFFImage: NSImage { get }
-    var PDFImage: NSImage { get }
-    #elseif os(iOS)
-    var image: UIImage { get }
-    #endif
-    init(data: ChartDataType, fontSize: CGFloat)
     // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
     // ISSUES WITH INITIALIZERS
     init()

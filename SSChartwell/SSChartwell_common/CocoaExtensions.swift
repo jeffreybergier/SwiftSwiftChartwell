@@ -12,7 +12,7 @@
     import Cocoa
 #endif
 
-    public extension CTFont {
+    public extension CTFont {        
         public class func chartwellFont(chartType: ChartDataType, pointSize: CGFloat) -> CTFont {
             let rawFont: CTFont!
             #if os(iOS) || os(tvOS)
