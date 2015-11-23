@@ -6,6 +6,7 @@
 //  Copyright © 2015 Jeffrey Bergier. All rights reserved.
 //
 
+import CoreGraphics
 import Foundation
 
 public extension ChartValueDataType {
