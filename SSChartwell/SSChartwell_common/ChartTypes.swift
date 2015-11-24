@@ -67,6 +67,36 @@ public extension Chart.Rings {
     }
 }
 
+// MARK: Rose
+
+public extension Chart {
+    public struct Rose: ChartDataType {
+        public static var max: UInt? = 30
+        public static var style: Chart.Style = Chart.Style.Rose
+        public static var componentType: ChartDataComponentType.Type = Chart.Rose.Component.self
+        public var components: [ChartDataComponentType] = []
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        public init() { }
+        // END WORKAROUND
+    }
+}
+
+public extension Chart.Rose {
+    public struct Component: ChartDataComponentType {
+        public static var max: UInt? = 100
+        public var value: UInt = 0
+        public var color: CGColor!
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        public init() { }
+        // END WORKAROUND
+    }
+}
+
+
 // MARK: Bars Vertical
 
 public extension Chart {
@@ -117,7 +147,7 @@ public struct Chart {
             case .Rings:
                 return Chart.Rings.self
             case .Rose:
-                return Chart.BarsVertical.self
+                return Chart.Rose.self
             }
         }
         
