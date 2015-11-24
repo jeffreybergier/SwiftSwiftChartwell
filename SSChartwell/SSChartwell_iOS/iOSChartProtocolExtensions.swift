@@ -9,30 +9,12 @@
 import UIKit
 
 public extension ChartRendererType {
+    
     public var image: UIImage? {
-        let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
-        let attributedString = NSAttributedString(chartData: self.data, font: font)
-        let renderingView = UILabel()
-        renderingView.backgroundColor = UIColor.whiteColor()
-        renderingView.lineBreakMode = NSLineBreakMode.ByClipping
-        renderingView.attributedText = attributedString
-        renderingView.sizeToFit()
-        UIGraphicsBeginImageContextWithOptions(renderingView.bounds.size, renderingView.opaque, 0.0)
-        defer {
-            UIGraphicsEndImageContext()
-            
-        }
-        if let currentContext = UIGraphicsGetCurrentContext() {
-            renderingView.layer.renderInContext(currentContext)
-            if let image = UIGraphicsGetImageFromCurrentImageContext() {
-                return image
-            }
-        }
-        return .None
+        let renderingView = self.prepareRenderingView()
+        return self.CGImageFromView(renderingView)
     }
-}
-
-public extension ChartRendererType {
+    
     public func generateAnimatedImagesWithFrameCount(frameCount: UInt, completionHandler: ([UIImage] -> Void)) {
         let myComponents = self.data.components
         let myComponentType = myComponents.first?.dynamicType ?? Chart.BarsVertical.Component.self
@@ -59,5 +41,26 @@ public extension ChartRendererType {
                 completionHandler(images)
             }
         }
+    }
+    
+    private func prepareRenderingView() -> UIView {
+        let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
+        let attributedString = NSAttributedString(chartData: self.data, font: font)
+        let renderingView = UILabel()
+        renderingView.backgroundColor = UIColor.whiteColor()
+        renderingView.lineBreakMode = NSLineBreakMode.ByClipping
+        renderingView.attributedText = attributedString
+        renderingView.sizeToFit()
+        return renderingView
+    }
+    
+    private func CGImageFromView(view: UIView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0)
+        defer { UIGraphicsEndImageContext() }
+        if let currentContext = UIGraphicsGetCurrentContext() {
+            view.layer.renderInContext(currentContext)
+            return UIGraphicsGetImageFromCurrentImageContext()
+        }
+        return .None
     }
 }
