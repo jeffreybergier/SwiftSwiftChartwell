@@ -71,6 +71,37 @@ public extension Chart.Rings {
     }
 }
 
+// MARK: Rings
+
+public extension Chart {
+    public struct Bars: ChartDataType {
+        public static let fontName: String = "Chartwell Bars"
+        public static let fontFileName: String = "ChartwellBars"
+        public static let max: UInt? = .None
+        public static let style: Chart.Style = Chart.Style.Bars
+        public static let componentType: ChartDataComponentType.Type = Chart.Bars.Component.self
+        public var components: [ChartDataComponentType] = []
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        public init() { }
+        // END WORKAROUND
+    }
+}
+
+public extension Chart.Bars {
+    public struct Component: ChartDataComponentType {
+        public static var max: UInt? = 1000
+        public var value: UInt = 0
+        public var color: CGColor!
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        public init() { }
+        // END WORKAROUND
+    }
+}
+
 // MARK: Rose
 
 public extension Chart {
@@ -90,6 +121,37 @@ public extension Chart {
 }
 
 public extension Chart.Rose {
+    public struct Component: ChartDataComponentType {
+        public static var max: UInt? = 100
+        public var value: UInt = 0
+        public var color: CGColor!
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        public init() { }
+        // END WORKAROUND
+    }
+}
+
+// MARK: Lines
+
+public extension Chart {
+    public struct Lines: ChartDataType {
+        public static let fontName: String = "Chartwell Lines"
+        public static let fontFileName: String = "ChartwellLines"
+        public static let max: UInt? = .None
+        public static let style: Chart.Style = Chart.Style.Lines
+        public static let componentType: ChartDataComponentType.Type = Chart.Lines.Component.self
+        public var components: [ChartDataComponentType] = []
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        public init() { }
+        // END WORKAROUND
+    }
+}
+
+public extension Chart.Lines {
     public struct Component: ChartDataComponentType {
         public static var max: UInt? = 100
         public var value: UInt = 0
@@ -143,11 +205,11 @@ public struct Chart {
         public var rawValue: ChartDataType.Type {
             switch self {
             case .Bars:
-                return Chart.BarsVertical.self
+                return Chart.Bars.self
             case .BarsVertical:
                 return Chart.BarsVertical.self
             case .Lines:
-                return Chart.BarsVertical.self
+                return Chart.Lines.self
             case .Pies:
                 return Chart.Pies.self
             case .Radar:
