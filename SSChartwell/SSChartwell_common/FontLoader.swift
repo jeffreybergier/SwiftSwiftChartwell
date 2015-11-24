@@ -28,14 +28,14 @@ public extension Chart {
             var failedFonts: [Chart.Style] = []
             for fontStyle in self.dynamicType.attemptedFonts {
                 #if os(iOS) || os(tvOS)
-                    let optionalFont = UIFont(name: fontStyle.fontName, size: 20)
+                    let optionalFont = UIFont(name: fontStyle.rawValue.fontName, size: 20)
                 #elseif os(OSX)
-                    let optionalFont = NSFont(name: fontStyle.fontName, size: 20)
+                    let optionalFont = NSFont(name: fontStyle.rawValue.fontName, size: 20)
                 #endif
                 if let _ = optionalFont {
                     availableFonts.append(fontStyle)
                 } else {
-                    if let font = NSBundle.mainBundle().URLForResource(fontStyle.fontFileName, withExtension: "ttf") {
+                    if let font = NSBundle.mainBundle().URLForResource(fontStyle.rawValue.fontFileName, withExtension: "ttf") {
                         CTFontManagerRegisterFontsForURL(font, CTFontManagerScope.Process, nil)
                         availableFonts.append(fontStyle)
                     } else {

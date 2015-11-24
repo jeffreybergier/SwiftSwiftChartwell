@@ -9,7 +9,7 @@
 import CoreGraphics
 import Foundation
 
-public extension ChartValueDataType {
+public extension ChartSumDataType {
     public init(components: [ChartDataComponentType]) {
         self.init()
         if let max = self.dynamicType.max {

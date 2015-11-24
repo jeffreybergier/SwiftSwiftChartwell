@@ -9,9 +9,11 @@
 import CoreGraphics
 import Foundation
 
-public protocol ChartValueDataType: ChartDataType {}
+public protocol ChartSumDataType: ChartDataType {}
 
 public protocol ChartDataType {
+    static var fontName: String { get }
+    static var fontFileName: String { get }
     static var max: UInt? { get }
     static var style: Chart.Style { get }
     static var componentType: ChartDataComponentType.Type { get }
