@@ -11,7 +11,13 @@ import UIKit
 public extension ChartRendererType {
     
     public var image: UIImage? {
-        let renderingView = self.prepareRenderingView()
+        let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
+        let attributedString = NSAttributedString(chartData: self.data, font: font)
+        
+        let renderingView = LabelSingleton.sharedLabel.label
+        renderingView.attributedText = attributedString
+        renderingView.sizeToFit()
+        
         return self.CGImageFromView(renderingView)
     }
     
@@ -43,17 +49,6 @@ public extension ChartRendererType {
         }
     }
     
-    private func prepareRenderingView() -> UIView {
-        let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
-        let attributedString = NSAttributedString(chartData: self.data, font: font)
-        let renderingView = UILabel()
-        renderingView.backgroundColor = UIColor.whiteColor()
-        renderingView.lineBreakMode = NSLineBreakMode.ByClipping
-        renderingView.attributedText = attributedString
-        renderingView.sizeToFit()
-        return renderingView
-    }
-    
     private func CGImageFromView(view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0)
         defer { UIGraphicsEndImageContext() }
@@ -63,4 +58,16 @@ public extension ChartRendererType {
         }
         return .None
     }
+}
+
+private class LabelSingleton {
+    static let sharedLabel = LabelSingleton()
+    
+    let label: UILabel = {
+        let renderingView = UILabel()
+        renderingView.backgroundColor = UIColor.whiteColor()
+        renderingView.lineBreakMode = NSLineBreakMode.ByClipping
+        renderingView.sizeToFit()
+        return renderingView
+    }()
 }
