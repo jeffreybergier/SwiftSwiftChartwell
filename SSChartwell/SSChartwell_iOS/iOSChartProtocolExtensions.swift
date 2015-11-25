@@ -24,37 +24,97 @@ public extension ChartRendererType {
     }
     
     public func generateAnimatedImagesWithFrameCount(frameCount: UInt, completionHandler: ([UIImage] -> Void)) {
-        let myDataType = self.data?.dynamicType ?? Chart.BarsVertical.self
-        if let _ = myDataType as? ChartSumDataType.Type {
-            print("DETECTED CHARTSUMDATATYPE!!! \(myDataType)")
+        guard let myDataType = self.data?.dynamicType else {
             completionHandler([])
-        } else {
-            let myComponents = self.data.components
-            let myComponentType = myComponents.first?.dynamicType ?? Chart.BarsVertical.Component.self
-            let myComponentTypeMax = Int(myComponentType.max ?? 100)
-            
+            return
+        }
+        if let _ = myDataType as? ChartSumDataType.Type {
             let backgroundQueue = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
             dispatch_async(backgroundQueue) {
-                var images = [UIImage]()
-                for i in 0 ..< frameCount {
-                    let newComponents = myComponents.map() { component -> ChartDataComponentType in
-                        let adjustedI = Double(myComponentTypeMax) / Double(frameCount) * Double(i)
-                        let math = Double(component.value) / Double(myComponentTypeMax) * adjustedI
-                        let roundedMath = UInt(round(math))
-                        return myComponentType.init(value: roundedMath, color: component.color)
-                    }
-                    let newData = myDataType.init(components: newComponents)
-                    let newRenderer = self.dynamicType.init(data: newData, fontSize: self.fontSize)
-                    if let newImage = newRenderer?.image {
-                        images.append(newImage)
-                    }
+                let images = self.generateAnimatedImagesForSumDataTypeWithFrameCount(frameCount)
+                dispatch_async(dispatch_get_main_queue()) {
+                    completionHandler(images)
                 }
+            }
+        } else {
+            let backgroundQueue = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
+            dispatch_async(backgroundQueue) {
+                let images = self.generateAnimatedImagesForNonSumDataTypeWithFrameCount(frameCount)
                 dispatch_async(dispatch_get_main_queue()) {
                     completionHandler(images)
                 }
             }
         }
     }
+    
+    private func generateAnimatedImagesForSumDataTypeWithFrameCount(frameCount: UInt) -> [UIImage] {
+        guard let myDataType = self.data?.dynamicType else { return [] }
+        guard let myComponentType = self.data.components.first?.dynamicType else { return [] }
+        let myComponents = self.data.components
+        
+        let images = (0 ..< frameCount).map() { count -> [ChartDataComponentType] in
+            if count >= frameCount - 1 {
+                return myComponents // in the last loop, I want to return what we started with
+            } else {
+                let newComponents = myComponents.map() { component -> ChartDataComponentType in
+                    let value = count <= component.value ? count : component.value
+                    let newComponent = myComponentType.init(value: value, color: component.color)
+                    return newComponent
+                }
+                return newComponents
+            }
+        }.map() { components -> UIImage? in
+            let newData = myDataType.init(components: components)
+            let newRenderer = self.dynamicType.init(data: newData, fontSize: self.fontSize)
+            if let newImage = newRenderer?.image {
+                return newImage
+            } else {
+                return .None
+            }
+        }.filter() { image -> Bool in
+            if let _ = image { return true } else { return false }
+        }.map() { // image -> UIImage in Compiler error when declaring types, inference works though :-/
+            return $0!
+        }
+        
+        return images
+    }
+    
+    private func generateAnimatedImagesForNonSumDataTypeWithFrameCount(frameCount: UInt) -> [UIImage] {
+        guard let myDataType = self.data?.dynamicType else { return [] }
+        guard let myComponentType = self.data.components.first?.dynamicType else { return [] }
+        let myComponents = self.data.components
+        let myComponentTypeMax = Int(myComponentType.max ?? frameCount)
+        
+        let images = (0 ..< frameCount).map() { count -> [ChartDataComponentType] in
+            if count >= frameCount - 1 {
+                return myComponents // in the last loop, I want to return what we started with.
+            } else {
+                let newComponents = myComponents.map() { component -> ChartDataComponentType in
+                    let adjustedCount = Double(myComponentTypeMax) / Double(frameCount) * Double(count)
+                    let math = Double(component.value) / Double(myComponentTypeMax) * adjustedCount
+                    let roundedMath = UInt(round(math))
+                    return myComponentType.init(value: roundedMath, color: component.color)
+                }
+                return newComponents
+            }
+        }.map() { components -> UIImage? in
+            let newData = myDataType.init(components: components)
+            let newRenderer = self.dynamicType.init(data: newData, fontSize: self.fontSize)
+            if let newImage = newRenderer?.image {
+                return newImage
+            } else {
+                return .None
+            }
+        }.filter() { image -> Bool in
+            if let _ = image { return true } else { return false }
+        }.map() { // image -> UIImage in Compiler error when declaring types, inference works though :-/
+            return $0!
+        }
+        
+        return images
+    }
+    
     
     private func CGImageFromView(view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0)
@@ -79,7 +139,7 @@ private class LabelSingleton {
     private var roseLabel: UILabel?
     
     private var resetTimer: NSTimer?
-
+    
     @objc private func resetTimerFired(timer: NSTimer?) {
         timer?.invalidate()
         self.resetTimer?.invalidate()
@@ -128,7 +188,7 @@ private class LabelSingleton {
                 label.lineBreakMode = NSLineBreakMode.ByClipping
                 label.sizeToFit()
                 return label
-            }()
+                }()
             
             switch style {
             case .Bars:
