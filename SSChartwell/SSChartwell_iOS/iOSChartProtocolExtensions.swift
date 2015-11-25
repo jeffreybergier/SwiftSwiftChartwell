@@ -9,7 +9,6 @@
 import UIKit
 
 public extension ChartRendererType {
-    
     public var image: UIImage? {
         let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
         let attributedString = NSAttributedString(chartData: self.data, font: font)
@@ -18,33 +17,41 @@ public extension ChartRendererType {
         renderingView.attributedText = attributedString
         renderingView.sizeToFit()
         
-        return self.CGImageFromView(renderingView)
+        let image = self.CGImageFromView(renderingView)
+        renderingView.attributedText = .None
+        
+        return image
     }
     
     public func generateAnimatedImagesWithFrameCount(frameCount: UInt, completionHandler: ([UIImage] -> Void)) {
-        let myComponents = self.data.components
-        let myComponentType = myComponents.first?.dynamicType ?? Chart.BarsVertical.Component.self
-        let myComponentTypeMax = Int(myComponentType.max ?? 100)
         let myDataType = self.data?.dynamicType ?? Chart.BarsVertical.self
-        
-        let backgroundQueue = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
-        dispatch_async(backgroundQueue) {
-            var images = [UIImage]()
-            for i in 0 ..< frameCount {
-                let newComponents = myComponents.map() { component -> ChartDataComponentType in
-                    let adjustedI = Double(myComponentTypeMax) / Double(frameCount) * Double(i)
-                    let math = Double(component.value) / Double(myComponentTypeMax) * adjustedI
-                    let roundedMath = UInt(round(math))
-                    return myComponentType.init(value: roundedMath, color: component.color)
+        if let _ = myDataType as? ChartSumDataType.Type {
+            print("DETECTED CHARTSUMDATATYPE!!! \(myDataType)")
+            completionHandler([])
+        } else {
+            let myComponents = self.data.components
+            let myComponentType = myComponents.first?.dynamicType ?? Chart.BarsVertical.Component.self
+            let myComponentTypeMax = Int(myComponentType.max ?? 100)
+            
+            let backgroundQueue = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
+            dispatch_async(backgroundQueue) {
+                var images = [UIImage]()
+                for i in 0 ..< frameCount {
+                    let newComponents = myComponents.map() { component -> ChartDataComponentType in
+                        let adjustedI = Double(myComponentTypeMax) / Double(frameCount) * Double(i)
+                        let math = Double(component.value) / Double(myComponentTypeMax) * adjustedI
+                        let roundedMath = UInt(round(math))
+                        return myComponentType.init(value: roundedMath, color: component.color)
+                    }
+                    let newData = myDataType.init(components: newComponents)
+                    let newRenderer = self.dynamicType.init(data: newData, fontSize: self.fontSize)
+                    if let newImage = newRenderer?.image {
+                        images.append(newImage)
+                    }
                 }
-                let newData = myDataType.init(components: newComponents)
-                let newRenderer = self.dynamicType.init(data: newData, fontSize: self.fontSize)
-                if let newImage = newRenderer?.image {
-                    images.append(newImage)
+                dispatch_async(dispatch_get_main_queue()) {
+                    completionHandler(images)
                 }
-            }
-            dispatch_async(dispatch_get_main_queue()) {
-                completionHandler(images)
             }
         }
     }
