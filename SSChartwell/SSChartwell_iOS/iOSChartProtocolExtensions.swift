@@ -84,16 +84,14 @@ public extension ChartRendererType {
         guard let myDataType = self.data?.dynamicType else { return [] }
         guard let myComponentType = self.data.components.first?.dynamicType else { return [] }
         let myComponents = self.data.components
-        let myComponentTypeMax = Int(myComponentType.max ?? frameCount)
         
         let images = (0 ..< frameCount).map() { count -> [ChartDataComponentType] in
             if count >= frameCount - 1 {
                 return myComponents // in the last loop, I want to return what we started with.
             } else {
                 let newComponents = myComponents.map() { component -> ChartDataComponentType in
-                    let adjustedCount = Double(myComponentTypeMax) / Double(frameCount) * Double(count)
-                    let math = Double(component.value) / Double(myComponentTypeMax) * adjustedCount
-                    let roundedMath = UInt(round(math))
+                    let adjustedCount = Double(component.value) / Double(frameCount) * Double(count)
+                    let roundedMath = UInt(round(adjustedCount))
                     return myComponentType.init(value: roundedMath, color: component.color)
                 }
                 return newComponents
