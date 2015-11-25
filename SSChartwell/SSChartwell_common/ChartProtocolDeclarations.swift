@@ -36,3 +36,15 @@ public protocol ChartDataComponentType {
     init()
     // END WORKAROUND
 }
+
+public extension Chart {
+    public struct Renderer: ChartRendererType {
+        public var data: ChartDataType!
+        public var fontSize: CGFloat = 0
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        public init() { }
+        // END WORKAROUND
+    }
+}

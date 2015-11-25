@@ -71,7 +71,7 @@ public extension Chart.Rings {
     }
 }
 
-// MARK: Rings
+// MARK: Bars Horizontal
 
 public extension Chart {
     public struct Bars: ChartDataType {
@@ -196,7 +196,38 @@ public extension Chart.BarsVertical {
     }
 }
 
-// MARK: Generic Chart
+// MARK: Radar
+
+public extension Chart {
+    public struct Radar: ChartDataType {
+        public static let fontName: String = "Chartwell Radar"
+        public static let fontFileName: String = "ChartwellRadar"
+        public static let max: UInt? = 10
+        public static let style: Chart.Style = Chart.Style.Radar
+        public static let componentType: ChartDataComponentType.Type = Chart.Radar.Component.self
+        public var components: [ChartDataComponentType] = []
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        public init() { }
+        // END WORKAROUND
+    }
+}
+
+public extension Chart.Radar {
+    public struct Component: ChartDataComponentType {
+        public static var max: UInt? = 100
+        public var value: UInt = 0
+        public var color: CGColor!
+        
+        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
+        // ISSUES WITH INITIALIZERS
+        public init() { }
+        // END WORKAROUND
+    }
+}
+
+// MARK: Possible Chart Styles
 
 public struct Chart {
     public enum Style: RawRepresentable {
@@ -213,7 +244,7 @@ public struct Chart {
             case .Pies:
                 return Chart.Pies.self
             case .Radar:
-                return Chart.BarsVertical.self
+                return Chart.Radar.self
             case .Rings:
                 return Chart.Rings.self
             case .Rose:
@@ -224,56 +255,6 @@ public struct Chart {
         public init?(rawValue: ChartDataType.Type) {
             self = rawValue.style
         }
-        
-//        public var fontName: String {
-//            switch self {
-//            case .Bars:
-//                return "Chartwell Bars"
-//            case .BarsVertical:
-//                return "Chartwell Bars Vertical"
-//            case .Lines:
-//                return "Chartwell Lines"
-//            case .Pies:
-//                return "Chartwell Pies"
-//            case .Radar:
-//                return "Chartwell Radar"
-//            case .Rings:
-//                return "Chartwell Rings"
-//            case .Rose:
-//                return "Chartwell Rose"
-//            }
-//        }
-//        
-//        public var fontFileName: String {
-//            switch self {
-//            case .Bars:
-//                return "ChartwellBars"
-//            case .BarsVertical:
-//                return "ChartwellBarsVertical"
-//            case .Lines:
-//                return "ChartwellLines"
-//            case .Pies:
-//                return "ChartwellPies"
-//            case .Radar:
-//                return "ChartwellRadar"
-//            case .Rings:
-//                return "ChartwellRings"
-//            case .Rose:
-//                return "ChartwellRose"
-//            }
-//        }
-    }
-}
-
-public extension Chart {
-    public struct Renderer: ChartRendererType {
-        public var data: ChartDataType!
-        public var fontSize: CGFloat = 0
-        
-        // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
-        // ISSUES WITH INITIALIZERS
-        public init() { }
-        // END WORKAROUND
     }
 }
 
