@@ -12,43 +12,45 @@ import Foundation
 public extension ChartSumDataType {
     public init(components: [ChartDataComponentType]) {
         self.init()
-        if let max = self.dynamicType.max {
-            var inputMaxIndex = 0
-            var inputValueCounter = UInt(0)
-            for (index, component) in components.enumerate() {
-                inputValueCounter += component.value
-                if inputValueCounter <= max {
-                    inputMaxIndex = index
-                } else {
-                    NSLog("Components total value exceeds MAX: \(max). Ignoring \(components.count - inputMaxIndex) components.")
-                    break
-                }
-            }
-            for i in 0...inputMaxIndex {
-                self.components.append(components[i])
-            }
-        } else {
+        guard let chartMaxSum = self.dynamicType.max else {
             self.components = components
+            return
         }
+        var componentSum = UInt(0)
+        let trimmedComponents = components.map() { component -> ChartDataComponentType? in
+            if (component.value + componentSum) <= chartMaxSum {
+                componentSum += component.value
+                return component
+            } else {
+                return .None
+            }
+        }.filter() { component -> Bool in
+            if let _ = component { return true } else { return false }
+        }.map() { component -> ChartDataComponentType in
+            return component!
+        }
+        if trimmedComponents.count != components.count {
+            NSLog("Components total value exceeds \(chartMaxSum) max. Using first \(trimmedComponents.count) components, total value of \(componentSum).")
+        }
+        self.components = trimmedComponents
     }
     
     public mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool {
-        if let max = self.dynamicType.max {
-            var existingComponentsValue = UInt(0)
-            for component in self.components {
-                existingComponentsValue += component.value
-            }
-            if existingComponentsValue + newComponent.value <= max {
-                self.components.append(newComponent)
-                return true
-            } else {
-                NSLog("Could not append component. Existing Value: \(existingComponentsValue) plus New Value: \(newComponent.value) exceeds MAX: \(max)")
-                return false
-            }
-        } else {
+        guard let chartMaxSum = self.dynamicType.max else {
             self.components.append(newComponent)
             return true
         }
+        let existingComponentsSum = self.components.reduce(0) { (totalSoFar, nextComponent) -> UInt in
+            return totalSoFar + nextComponent.value
+        }
+        if existingComponentsSum + newComponent.value <= chartMaxSum {
+            self.components.append(newComponent)
+            return true
+        } else {
+            NSLog("Could not append component. Existing Value: \(existingComponentsSum) plus New Value: \(newComponent.value) exceeds \(chartMaxSum) max.")
+            return false
+        }
+        
     }
 }
 
