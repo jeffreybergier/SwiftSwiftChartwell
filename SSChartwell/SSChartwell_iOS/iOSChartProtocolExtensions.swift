@@ -31,7 +31,12 @@ public extension ChartRendererType {
         if let _ = myDataType as? ChartSumDataType.Type {
             let backgroundQueue = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
             dispatch_async(backgroundQueue) {
-                let images = self.generateAnimatedImagesForSumDataTypeWithFrameCount(frameCount)
+                let data = self.animationReadyChartSumDataTypeArrayWithFrameCount(frameCount)
+                // having to do this step seems like a compiler bug. Hopefully can remove later.
+                let mappedData = data.map() { datum -> ChartDataType in
+                    return datum
+                }
+                let images = self.generateAnimatedImagesWithChartDataType(mappedData)
                 dispatch_async(dispatch_get_main_queue()) {
                     completionHandler(images)
                 }
@@ -39,7 +44,8 @@ public extension ChartRendererType {
         } else {
             let backgroundQueue = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
             dispatch_async(backgroundQueue) {
-                let images = self.generateAnimatedImagesForNonSumDataTypeWithFrameCount(frameCount)
+                let data = self.animationReadyChartDataTypeArrayWithFrameCount(frameCount)
+                let images = self.generateAnimatedImagesWithChartDataType(data)
                 dispatch_async(dispatch_get_main_queue()) {
                     completionHandler(images)
                 }
@@ -47,69 +53,19 @@ public extension ChartRendererType {
         }
     }
     
-    private func generateAnimatedImagesForSumDataTypeWithFrameCount(frameCount: UInt) -> [UIImage] {
-        guard let myDataType = self.data?.dynamicType else { return [] }
-        guard let myComponentType = self.data.components.first?.dynamicType else { return [] }
-        let myComponents = self.data.components
-        
-        let images = (0 ..< frameCount).map() { count -> [ChartDataComponentType] in
-            if count >= frameCount - 1 {
-                return myComponents // in the last loop, I want to return what we started with
-            } else {
-                let newComponents = myComponents.map() { component -> ChartDataComponentType in
-                    let value = count <= component.value ? count : component.value
-                    let newComponent = myComponentType.init(value: value, color: component.color)
-                    return newComponent
-                }
-                return newComponents
-            }
-        }.map() { components -> UIImage? in
-            let newData = myDataType.init(components: components)
-            let newRenderer = self.dynamicType.init(data: newData, fontSize: self.fontSize)
+    private func generateAnimatedImagesWithChartDataType(data: [ChartDataType]) -> [UIImage] {
+        let images = data.map() { datum -> UIImage? in
+            let newRenderer = self.dynamicType.init(data: datum, fontSize: self.fontSize)
             if let newImage = newRenderer?.image {
                 return newImage
             } else {
                 return .None
             }
         }.filter() { image -> Bool in
-            if let _ = image { return true } else { return false }
+                if let _ = image { return true } else { return false }
         }.map() { // image -> UIImage in Compiler error when declaring types, inference works though :-/
             return $0!
         }
-        
-        return images
-    }
-    
-    private func generateAnimatedImagesForNonSumDataTypeWithFrameCount(frameCount: UInt) -> [UIImage] {
-        guard let myDataType = self.data?.dynamicType else { return [] }
-        guard let myComponentType = self.data.components.first?.dynamicType else { return [] }
-        let myComponents = self.data.components
-        
-        let images = (0 ..< frameCount).map() { count -> [ChartDataComponentType] in
-            if count >= frameCount - 1 {
-                return myComponents // in the last loop, I want to return what we started with.
-            } else {
-                let newComponents = myComponents.map() { component -> ChartDataComponentType in
-                    let adjustedCount = Double(component.value) / Double(frameCount) * Double(count)
-                    let roundedMath = UInt(round(adjustedCount))
-                    return myComponentType.init(value: roundedMath, color: component.color)
-                }
-                return newComponents
-            }
-        }.map() { components -> UIImage? in
-            let newData = myDataType.init(components: components)
-            let newRenderer = self.dynamicType.init(data: newData, fontSize: self.fontSize)
-            if let newImage = newRenderer?.image {
-                return newImage
-            } else {
-                return .None
-            }
-        }.filter() { image -> Bool in
-            if let _ = image { return true } else { return false }
-        }.map() { // image -> UIImage in Compiler error when declaring types, inference works though :-/
-            return $0!
-        }
-        
         return images
     }
     

@@ -115,4 +115,50 @@ public extension ChartRendererType {
         self.data = data
         self.fontSize = fontSize
     }
+    
+    func animationReadyChartSumDataTypeArrayWithFrameCount(frameCount: UInt) -> [ChartSumDataType] {
+        guard let myDataType = self.data?.dynamicType as? ChartSumDataType.Type else { return [] }
+        guard let myComponentType = self.data.components.first?.dynamicType else { return [] }
+        let myComponents = self.data.components
+        
+        let data = (0 ..< frameCount).map() { count -> [ChartDataComponentType] in
+            if count >= frameCount - 1 {
+                return myComponents // in the last loop, I want to return what we started with
+            } else {
+                let newComponents = myComponents.map() { component -> ChartDataComponentType in
+                    let value = count <= component.value ? count : component.value
+                    let newComponent = myComponentType.init(value: value, color: component.color)
+                    return newComponent
+                }
+                return newComponents
+            }
+            }.map() { components -> ChartSumDataType in
+                let newData = myDataType.init(components: components)
+                return newData
+        }
+        return data
+    }
+    
+    func animationReadyChartDataTypeArrayWithFrameCount(frameCount: UInt) -> [ChartDataType] {
+        guard let myDataType = self.data?.dynamicType else { return [] }
+        guard let myComponentType = self.data.components.first?.dynamicType else { return [] }
+        let myComponents = self.data.components
+        
+        let data = (0 ..< frameCount).map() { count -> [ChartDataComponentType] in
+            if count >= frameCount - 1 {
+                return myComponents // in the last loop, I want to return what we started with.
+            } else {
+                let newComponents = myComponents.map() { component -> ChartDataComponentType in
+                    let adjustedCount = Double(component.value) / Double(frameCount) * Double(count)
+                    let roundedMath = UInt(round(adjustedCount))
+                    return myComponentType.init(value: roundedMath, color: component.color)
+                }
+                return newComponents
+            }
+            }.map() { components -> ChartDataType in
+                let newData = myDataType.init(components: components)
+                return newData
+        }
+        return data
+    }
 }
