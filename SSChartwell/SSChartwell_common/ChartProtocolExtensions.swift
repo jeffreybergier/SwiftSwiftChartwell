@@ -117,24 +117,33 @@ public extension ChartRendererType {
     }
     
     func animationReadyChartSumDataTypeArrayWithFrameCount(frameCount: UInt) -> [ChartSumDataType] {
-        guard let myDataType = self.data?.dynamicType as? ChartSumDataType.Type else { return [] }
-        guard let myComponentType = self.data.components.first?.dynamicType else { return [] }
         let myComponents = self.data.components
+        guard let myDataType = self.data?.dynamicType as? ChartSumDataType.Type else { return [] }
+        guard let myComponentType = myComponents.first?.dynamicType else { return [] }
         
         let data = (0 ..< frameCount).map() { count -> [ChartDataComponentType] in
             if count >= frameCount - 1 {
                 return myComponents // in the last loop, I want to return what we started with
             } else {
                 let newComponents = myComponents.map() { component -> ChartDataComponentType in
-                    let value = count <= component.value ? count : component.value
-                    let newComponent = myComponentType.init(value: value, color: component.color)
+                    let offsetCalculation: UInt
+                    if component.value > frameCount {
+                        // if the total framecount is less than the component value, I need to adjust each frame
+                        // because there is not a 1 to 1 relationship between frames and values.
+                        let animationPercentage = Double(count) / Double(frameCount != 0 ? frameCount : 1)
+                        offsetCalculation = UInt(round(animationPercentage * Double(component.value)))//averageValuePerComponent))
+                    } else {
+                        offsetCalculation = count
+                    }
+                    let compareCalculationToFinalValue = offsetCalculation <= component.value ? offsetCalculation : component.value
+                    let newComponent = myComponentType.init(value: compareCalculationToFinalValue, color: component.color)
                     return newComponent
                 }
                 return newComponents
             }
-            }.map() { components -> ChartSumDataType in
-                let newData = myDataType.init(components: components)
-                return newData
+        }.map() { components -> ChartSumDataType in
+            let newData = myDataType.init(components: components)
+            return newData
         }
         return data
     }
@@ -155,9 +164,9 @@ public extension ChartRendererType {
                 }
                 return newComponents
             }
-            }.map() { components -> ChartDataType in
-                let newData = myDataType.init(components: components)
-                return newData
+        }.map() { components -> ChartDataType in
+            let newData = myDataType.init(components: components)
+            return newData
         }
         return data
     }
