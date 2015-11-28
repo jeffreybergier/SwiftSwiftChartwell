@@ -138,7 +138,8 @@ private class LabelSingleton {
             
             existingLabel = {
                 let label = UILabel()
-                label.backgroundColor = UIColor.whiteColor()
+                label.opaque = false
+                label.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
                 label.lineBreakMode = NSLineBreakMode.ByClipping
                 label.sizeToFit()
                 return label
