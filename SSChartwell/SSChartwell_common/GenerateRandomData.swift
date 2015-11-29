@@ -40,8 +40,9 @@ extension ChartDataType {
     }
     
     private static func generateRandomDataForSumType() -> [ChartDataComponentType] {
+        let dataType = self
         let componentType = self.componentType
-        let chartMaxValue = UInt(componentType.max ?? 10)
+        let chartMaxValue = UInt(dataType.max ?? 10)
         var componentCount = UInt(0)
         let lower : UInt32 = 1
         let upper : UInt32 = 30
@@ -61,9 +62,10 @@ extension ChartDataType {
     }
     
     private static func generateRandomDataForNonSumType() -> [ChartDataComponentType] {
+        let dataType = self
         let componentType = self.componentType
         let componentMaxValue = UInt32(componentType.max ?? 100)
-        let chartMaxNumberComponents = Int(componentType.max ?? 10)
+        let chartMaxNumberComponents = Int(dataType.max ?? 10)
         let lower : UInt32 = 0
         let upper : UInt32 = componentMaxValue
         
