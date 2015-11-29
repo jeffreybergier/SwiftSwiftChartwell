@@ -10,6 +10,15 @@
 		7300353B1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */; };
 		7300353C1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */; };
 		7300353D1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */; };
+		735DCF081C0B65FB0047CB6A /* ChartSumDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735DCF071C0B65FB0047CB6A /* ChartSumDataType.swift */; };
+		735DCF091C0B65FB0047CB6A /* ChartSumDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735DCF071C0B65FB0047CB6A /* ChartSumDataType.swift */; };
+		735DCF0A1C0B65FB0047CB6A /* ChartSumDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735DCF071C0B65FB0047CB6A /* ChartSumDataType.swift */; };
+		735DCF0C1C0B66330047CB6A /* ChartDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735DCF0B1C0B66330047CB6A /* ChartDataType.swift */; };
+		735DCF0D1C0B66330047CB6A /* ChartDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735DCF0B1C0B66330047CB6A /* ChartDataType.swift */; };
+		735DCF0E1C0B66330047CB6A /* ChartDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735DCF0B1C0B66330047CB6A /* ChartDataType.swift */; };
+		735DCF101C0B66790047CB6A /* ChartRendererType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735DCF0F1C0B66790047CB6A /* ChartRendererType.swift */; };
+		735DCF111C0B66790047CB6A /* ChartRendererType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735DCF0F1C0B66790047CB6A /* ChartRendererType.swift */; };
+		735DCF121C0B66790047CB6A /* ChartRendererType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735DCF0F1C0B66790047CB6A /* ChartRendererType.swift */; };
 		73A8044B1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */; };
 		73A8044C1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */; };
 		73A8044E1C02B9FA00C2823E /* MacChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044D1C02B9FA00C2823E /* MacChartProtocolExtensions.swift */; };
@@ -19,9 +28,9 @@
 		73CA8F581C025A2C00674876 /* SSChartwell_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 73CA8F571C025A2C00674876 /* SSChartwell_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73CA8F6A1C025A4100674876 /* SSChartwell_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 73CA8F691C025A4100674876 /* SSChartwell_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73CA8F771C025A5800674876 /* SSChartwell_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 73CA8F761C025A5800674876 /* SSChartwell_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		73CA8F8D1C025B3900674876 /* ChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F821C025B3900674876 /* ChartProtocolExtensions.swift */; };
-		73CA8F8E1C025B3A00674876 /* ChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F821C025B3900674876 /* ChartProtocolExtensions.swift */; };
-		73CA8F8F1C025B3A00674876 /* ChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F821C025B3900674876 /* ChartProtocolExtensions.swift */; };
+		73CA8F8D1C025B3900674876 /* ChartDataComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F821C025B3900674876 /* ChartDataComponentType.swift */; };
+		73CA8F8E1C025B3A00674876 /* ChartDataComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F821C025B3900674876 /* ChartDataComponentType.swift */; };
+		73CA8F8F1C025B3A00674876 /* ChartDataComponentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F821C025B3900674876 /* ChartDataComponentType.swift */; };
 		73CA8F901C025B3A00674876 /* ChartTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F831C025B3900674876 /* ChartTypes.swift */; };
 		73CA8F911C025B3A00674876 /* ChartTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F831C025B3900674876 /* ChartTypes.swift */; };
 		73CA8F921C025B3A00674876 /* ChartTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73CA8F831C025B3900674876 /* ChartTypes.swift */; };
@@ -38,6 +47,9 @@
 
 /* Begin PBXFileReference section */
 		7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateRandomData.swift; sourceTree = "<group>"; };
+		735DCF071C0B65FB0047CB6A /* ChartSumDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSumDataType.swift; sourceTree = "<group>"; };
+		735DCF0B1C0B66330047CB6A /* ChartDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDataType.swift; sourceTree = "<group>"; };
+		735DCF0F1C0B66790047CB6A /* ChartRendererType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartRendererType.swift; sourceTree = "<group>"; };
 		73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSChartProtocolExtensions.swift; sourceTree = "<group>"; };
 		73A8044D1C02B9FA00C2823E /* MacChartProtocolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacChartProtocolExtensions.swift; sourceTree = "<group>"; };
 		73A8044F1C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSChartProtocolDeclarations.swift; sourceTree = "<group>"; };
@@ -51,7 +63,7 @@
 		73CA8F741C025A5800674876 /* SSChartwell_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSChartwell_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73CA8F761C025A5800674876 /* SSChartwell_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSChartwell_iOS.h; sourceTree = "<group>"; };
 		73CA8F781C025A5800674876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73CA8F821C025B3900674876 /* ChartProtocolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartProtocolExtensions.swift; sourceTree = "<group>"; };
+		73CA8F821C025B3900674876 /* ChartDataComponentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDataComponentType.swift; sourceTree = "<group>"; };
 		73CA8F831C025B3900674876 /* ChartTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartTypes.swift; sourceTree = "<group>"; };
 		73CA8F841C025B3900674876 /* ChartProtocolDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartProtocolDeclarations.swift; sourceTree = "<group>"; };
 		73CA8F851C025B3900674876 /* CocoaExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaExtensions.swift; sourceTree = "<group>"; };
@@ -139,7 +151,10 @@
 			isa = PBXGroup;
 			children = (
 				73CA8F841C025B3900674876 /* ChartProtocolDeclarations.swift */,
-				73CA8F821C025B3900674876 /* ChartProtocolExtensions.swift */,
+				735DCF071C0B65FB0047CB6A /* ChartSumDataType.swift */,
+				735DCF0B1C0B66330047CB6A /* ChartDataType.swift */,
+				73CA8F821C025B3900674876 /* ChartDataComponentType.swift */,
+				735DCF0F1C0B66790047CB6A /* ChartRendererType.swift */,
 				7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */,
 				73CA8F831C025B3900674876 /* ChartTypes.swift */,
 				73CA8F851C025B3900674876 /* CocoaExtensions.swift */,
@@ -244,7 +259,6 @@
 				TargetAttributes = {
 					73CA8F541C025A2C00674876 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = V6ESYGU6CV;
 					};
 					73CA8F661C025A4100674876 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -305,11 +319,14 @@
 			files = (
 				7300353B1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */,
 				73CA8F901C025B3A00674876 /* ChartTypes.swift in Sources */,
+				735DCF0C1C0B66330047CB6A /* ChartDataType.swift in Sources */,
 				73A8044E1C02B9FA00C2823E /* MacChartProtocolExtensions.swift in Sources */,
 				73FCC3941C02CEFB00C4F8CC /* FontLoader.swift in Sources */,
 				73CA8F961C025B3A00674876 /* CocoaExtensions.swift in Sources */,
+				735DCF081C0B65FB0047CB6A /* ChartSumDataType.swift in Sources */,
 				73CA8F931C025B3A00674876 /* ChartProtocolDeclarations.swift in Sources */,
-				73CA8F8D1C025B3900674876 /* ChartProtocolExtensions.swift in Sources */,
+				73CA8F8D1C025B3900674876 /* ChartDataComponentType.swift in Sources */,
+				735DCF101C0B66790047CB6A /* ChartRendererType.swift in Sources */,
 				73A804531C02BA7D00C2823E /* MacChartProtocolDeclarations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,12 +337,15 @@
 			files = (
 				7300353C1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */,
 				73A8044B1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */,
+				735DCF0D1C0B66330047CB6A /* ChartDataType.swift in Sources */,
 				73CA8F911C025B3A00674876 /* ChartTypes.swift in Sources */,
 				73FCC3951C02CEFB00C4F8CC /* FontLoader.swift in Sources */,
 				73CA8F971C025B3A00674876 /* CocoaExtensions.swift in Sources */,
+				735DCF091C0B65FB0047CB6A /* ChartSumDataType.swift in Sources */,
 				73A804501C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift in Sources */,
 				73CA8F941C025B3A00674876 /* ChartProtocolDeclarations.swift in Sources */,
-				73CA8F8E1C025B3A00674876 /* ChartProtocolExtensions.swift in Sources */,
+				735DCF111C0B66790047CB6A /* ChartRendererType.swift in Sources */,
+				73CA8F8E1C025B3A00674876 /* ChartDataComponentType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,12 +355,15 @@
 			files = (
 				7300353D1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */,
 				73A8044C1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */,
+				735DCF0E1C0B66330047CB6A /* ChartDataType.swift in Sources */,
 				73CA8F921C025B3A00674876 /* ChartTypes.swift in Sources */,
 				73FCC3961C02CEFC00C4F8CC /* FontLoader.swift in Sources */,
 				73CA8F981C025B3A00674876 /* CocoaExtensions.swift in Sources */,
+				735DCF0A1C0B65FB0047CB6A /* ChartSumDataType.swift in Sources */,
 				73A804511C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift in Sources */,
 				73CA8F951C025B3A00674876 /* ChartProtocolDeclarations.swift in Sources */,
-				73CA8F8F1C025B3A00674876 /* ChartProtocolExtensions.swift in Sources */,
+				735DCF121C0B66790047CB6A /* ChartRendererType.swift in Sources */,
+				73CA8F8F1C025B3A00674876 /* ChartDataComponentType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +406,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -421,7 +445,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
