@@ -74,7 +74,8 @@ let ringData: [ChartDataComponentType] = [
             
 if let ringChart = Chart.Rings(components: ringData) {
 	let ringRenderer = Chart.Renderer(data: ringChart, fontSize: 50)
-	let ringImage = pieRenderer?.image
+	let ringPDFImage = pieRenderer?.PDFImage
+	let ringTIFFImage = pieRenderer?.TIFFImage
 }
 ```
 
