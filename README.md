@@ -1,6 +1,7 @@
 ![SSChartwell Header Image - Shows OS X and iOS Icon](zzScreenshots/README_Header_Image.png)
 
 # SSChartwell [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Carthage/Carthage/master/LICENSE.md) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![Platforms: macOS, iOS, tvOS](https://img.shields.io/badge/platform-macOS%20•%20iOS%20•%20tvOS-blue.svg) ![Version: 0.1](https://img.shields.io/badge/version-0.1-green.svg)
 
 SSChartwell is a light weight charting framework written in Swift. It was written for designers that are used to working with [FFChartwell](https://www.fontfont.com/how-to-use-ff-chartwell). This framework makes interacting with FFChartwell in apps simple and type safe. SSChartwell makes it very simple to generate UIImage and NSImage of charts that can be used anywhere those types are supported in Cocoa and Cocoa Touch (almost everywhere). On iOS, SSChartwell can even generate animated images so you can build in your charts.
 
@@ -24,7 +25,7 @@ SSChartwell is a light weight charting framework written in Swift. It was writte
 
 ![Radar Chart Thumbnail](zzScreenshots/Radar_thumb.png)
 
-[Radar Chart](zzScreenshots/Radar.jpg) 
+- [Radar Chart](zzScreenshots/Radar.jpg) 
 - [Rose Chart](zzScreenshots/Rose.jpg) 
 - [Rings Chart](zzScreenshots/Rings.jpg) 
 - [Pies Chart](zzScreenshots/Pies.jpg) 
@@ -43,13 +44,14 @@ func generateAnimatedImagesWithFrameCount(frameCount: Uint, completionHandler: (
 
 1. [Buy FFChartwell](https://www.fontfont.com/how-to-use-ff-chartwell#intro) - It is not included with this project.
 1. Add the fonts you would like into your app’s bundle.
-1. Add github “jeffreybergier/SwiftSwiftChartwell” to your Cartfile
+1. Add ```github “jeffreybergier/SwiftSwiftChartwell”``` to your Cartfile
 1. Do the usual carthage work to get the frameworks into your project.
-1. import SSChartwell_iOS / SSChartwell_macOS / SSChartwell_tvOS
 1. Use code samples below to generate an image.
 
 ### iOS
 ```swift
+import SSChartwell_iOS
+
 let pieData: [ChartDataComponentType] = [
 	Chart.Pies.Component(value: 20, color: UIColor.redColor().CGColor),
 	Chart.Pies.Component(value: 35, color: UIColor.blueColor().CGColor),
@@ -63,6 +65,8 @@ if let pieChart = Chart.Pies(components: pieData) {
 ```
 ### OS X
 ```swift
+import SSChartwell_macOS
+
 let ringData: [ChartDataComponentType] = [
 	Chart.Rings.Component(value: 75, color: NSColor.redColor().CGColor),
 	Chart.Rings.Component(value: 65, color: NSColor.blueColor().CGColor),
@@ -81,7 +85,7 @@ if let ringChart = Chart.Rings(components: ringData) {
 - Lastly, I wanted to learn. I heavily used Protocol Extensions for this project. Each of the chart types is a totally empty Struct. All it does is conform to the ChartDataType protocol. Then the protocol extension handles all the implementation for all the chart types in one place in the code.
 
 ## Contribute?
-Yes please. This is my first framework. Its a v0.1. It definitely needs a lot of improvements. I am happy to receive any Pull Requests and Issues.
+- Yes please. This is my first framework. Its a v0.1. It definitely needs a lot of improvements. I am happy to receive any Pull Requests and Issues.
 
 ## Major Issues (I’m sure there’s many)
 1. Memory Related Crashes when generating animated images.
