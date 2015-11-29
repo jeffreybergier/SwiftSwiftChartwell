@@ -20,6 +20,7 @@ public protocol ChartDataType {
     var components: [ChartDataComponentType] { get set }
     init(components: [ChartDataComponentType])
     mutating func appendComponent(newComponent: ChartDataComponentType) -> Bool
+    static func generateRandomData() -> [ChartDataComponentType]
     // WORKAROUND FOR SWIFT PROTOCOL EXTENSION
     // ISSUES WITH INITIALIZERS
     init()

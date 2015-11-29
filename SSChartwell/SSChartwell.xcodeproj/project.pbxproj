@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7300353B1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */; };
+		7300353C1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */; };
+		7300353D1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */; };
 		73A8044B1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */; };
 		73A8044C1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */; };
 		73A8044E1C02B9FA00C2823E /* MacChartProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A8044D1C02B9FA00C2823E /* MacChartProtocolExtensions.swift */; };
@@ -34,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateRandomData.swift; sourceTree = "<group>"; };
 		73A8044A1C02B9D400C2823E /* iOSChartProtocolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSChartProtocolExtensions.swift; sourceTree = "<group>"; };
 		73A8044D1C02B9FA00C2823E /* MacChartProtocolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacChartProtocolExtensions.swift; sourceTree = "<group>"; };
 		73A8044F1C02BA4C00C2823E /* iOSChartProtocolDeclarations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSChartProtocolDeclarations.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				73CA8F841C025B3900674876 /* ChartProtocolDeclarations.swift */,
 				73CA8F821C025B3900674876 /* ChartProtocolExtensions.swift */,
+				7300353A1C0A653C00FC19F2 /* GenerateRandomData.swift */,
 				73CA8F831C025B3900674876 /* ChartTypes.swift */,
 				73CA8F851C025B3900674876 /* CocoaExtensions.swift */,
 				73FCC3931C02CEFB00C4F8CC /* FontLoader.swift */,
@@ -298,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7300353B1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */,
 				73CA8F901C025B3A00674876 /* ChartTypes.swift in Sources */,
 				73A8044E1C02B9FA00C2823E /* MacChartProtocolExtensions.swift in Sources */,
 				73FCC3941C02CEFB00C4F8CC /* FontLoader.swift in Sources */,
@@ -312,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7300353C1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */,
 				73A8044B1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */,
 				73CA8F911C025B3A00674876 /* ChartTypes.swift in Sources */,
 				73FCC3951C02CEFB00C4F8CC /* FontLoader.swift in Sources */,
@@ -326,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7300353D1C0A653C00FC19F2 /* GenerateRandomData.swift in Sources */,
 				73A8044C1C02B9D400C2823E /* iOSChartProtocolExtensions.swift in Sources */,
 				73CA8F921C025B3A00674876 /* ChartTypes.swift in Sources */,
 				73FCC3961C02CEFC00C4F8CC /* FontLoader.swift in Sources */,
