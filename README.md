@@ -1,7 +1,6 @@
 ![SSChartwell Header Image - Shows OS X and iOS Icon](zzScreenshots/README_Header_Image.png)
 
-# SSChartwell [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Carthage/Carthage/master/LICENSE.md) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-![Platforms: macOS, iOS, tvOS](https://img.shields.io/badge/platform-macOS%20•%20iOS%20•%20tvOS-blue.svg) ![Version: 0.1](https://img.shields.io/badge/version-0.1-green.svg)
+# SSChartwell [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/Carthage/Carthage/master/LICENSE.md) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)![Platforms: macOS, iOS, tvOS](https://img.shields.io/badge/platform-macOS%20•%20iOS%20•%20tvOS-blue.svg)![Version: 0.1](https://img.shields.io/badge/version-0.1-green.svg)
 
 SSChartwell is a light weight charting framework written in Swift. It was written for designers that are used to working with [FFChartwell](https://www.fontfont.com/how-to-use-ff-chartwell). This framework makes interacting with FFChartwell in apps simple and type safe. SSChartwell makes it very simple to generate UIImage and NSImage of charts that can be used anywhere those types are supported in Cocoa and Cocoa Touch (almost everywhere). On iOS, SSChartwell can even generate animated images so you can build in your charts.
 
