@@ -39,9 +39,10 @@ public extension ChartRendererType {
         let font = CTFont.chartwellFont(self.data, pointSize: self.fontSize)
         let attributedString = NSAttributedString(chartData: self.data, font: font)
         let renderingView = NSTextField()
-        renderingView.backgroundColor = NSColor.whiteColor().colorWithAlphaComponent(0)
-        renderingView.attributedStringValue = attributedString
+        renderingView.drawsBackground = false
+        renderingView.bezeled = false
         renderingView.editable = false
+        renderingView.attributedStringValue = attributedString
         renderingView.sizeToFit()
         let PDF = renderingView.dataWithPDFInsideRect(renderingView.bounds)
         let PDFImage = NSImage(data: PDF)!
